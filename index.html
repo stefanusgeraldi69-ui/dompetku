@@ -170,6 +170,18 @@ nav.tabs .add span{width:52px;height:52px;border-radius:50%;background:var(--acc
 .hero .big2 + .big2{margin-top:-10px}
 .curchips{align-items:center;margin:0 0 12px}
 .curchips .small{margin-left:auto}
+/* Space */
+.spacebtn{display:inline-flex;align-items:center;gap:8px;padding:2px 10px 2px 2px;border-radius:99px;margin:0 0 6px -2px;color:var(--muted);font-size:15px;font-weight:500}
+.spacebtn:active{background:var(--chip)}
+.spacebtn .caret{font-size:11px}
+.sav{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex:0 0 auto}
+.sav.big{width:38px;height:38px;font-size:16px}
+.sprow{padding:0!important}
+.spsel{flex:1;display:flex;align-items:center;gap:12px;padding:12px 0;text-align:left}
+.spedit{padding:10px 4px 10px 12px;font-size:16px}
+.spcolors{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.spc{width:32px;height:32px;border-radius:50%}
+.spc.on{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--text)}
 /* Pemilih ikon */
 .iconpick{display:block;text-align:left;width:100%;position:relative;margin-bottom:10px}
 .iconpick .iv{display:block;font-size:24px;padding:2px 0 8px}
@@ -246,6 +258,7 @@ textarea.dump{width:100%;height:140px;border-radius:12px;border:1px solid var(--
 </head>
 <body>
 <header>
+  <button class="spacebtn" id="spaceBtn"><span class="sav" id="spaceAv">P</span><span id="spaceName">Pribadi</span><span class="caret">▾</span></button>
   <div class="hrow">
     <h1 id="title">Beranda</h1>
     <div class="month" id="monthNav">
@@ -351,23 +364,43 @@ const KEYWORDS = {
   c_biz: ['jualan','penjualan','usaha','profit','omzet']
 };
 
+// ---------- Space: buku keuangan terpisah (mis. Pribadi, Kantor) ----------
+// Space "default" memakai kunci lama supaya data yang sudah ada tetap terbaca.
+const SPACES_KEY = KEY + '.spaces';
+const spaceKey = id => id === 'default' ? KEY : KEY + '.space.' + id;
+const SPACE_COLORS = ['#16A34A', '#2563EB', '#D97706', '#DB2777', '#7C3AED', '#0891B2', '#DC2626', '#4B5563'];
+function getSpaces() {
+  let sp = null;
+  try { sp = JSON.parse(localStorage.getItem(SPACES_KEY)); } catch (e) {}
+  if (!sp || !Array.isArray(sp.list) || !sp.list.length) sp = { active: 'default', list: [{ id: 'default', name: 'Pribadi', color: SPACE_COLORS[0] }] };
+  if (!sp.list.some(x => x.id === sp.active)) sp.active = sp.list[0].id;
+  return sp;
+}
+function setSpaces(sp) { try { localStorage.setItem(SPACES_KEY, JSON.stringify(sp)); } catch (e) {} }
+const activeSpace = () => { const sp = getSpaces(); return sp.list.find(x => x.id === sp.active); };
+const spaceInfo = (id) => { const x = getSpaces().list.find(s => s.id === (id || getSpaces().active)) || {}; return { id: x.id, name: x.name }; };
+
 // ---------- Storage ----------
-let memStore = null;
-function load() {
+let memStore = {};
+function loadSpace(id) {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = localStorage.getItem(spaceKey(id));
     if (raw) {
       const d = JSON.parse(raw);
       if (d && Array.isArray(d.tx)) return normalize(Object.assign(defaults(), d));
     }
   } catch (e) {
-    if (memStore) return memStore;
+    if (memStore[id]) return memStore[id];
   }
   return normalize(defaults());
 }
+function saveSpace(id, data) {
+  try { localStorage.setItem(spaceKey(id), JSON.stringify(data)); }
+  catch (e) { memStore[id] = data; }
+}
+const load = () => loadSpace(getSpaces().active);
 function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(S)); }
-  catch (e) { memStore = S; }
+  saveSpace(getSpaces().active, S);
   scheduleBackup();
 }
 let S = load();
@@ -395,22 +428,22 @@ const catsPayload = () => ({
   out: S.categories.filter(c => c.type === 'out').map(c => c.name),
   in: S.categories.filter(c => c.type === 'in').map(c => c.name)
 });
-function mapCat(name, type) {
-  const list = S.categories.filter(c => c.type === type);
+function mapCat(name, type, data = S) {
+  const list = data.categories.filter(c => c.type === type);
   const n = String(name || '').toLowerCase();
   return (list.find(c => c.name.toLowerCase() === n) || list.find(c => c.name.toLowerCase() === 'lainnya') || list[list.length - 1] || {}).id;
 }
-function mapWallet(app, currency) {
+function mapWallet(app, currency, data = S) {
   const cur = String(currency || 'IDR').toUpperCase();
   const a = String(app || '').toLowerCase().replace(/\s+/g, '');
   const nameHit = w => { const n = w.name.toLowerCase().replace(/\s+/g, ''); return a && n && (n.includes(a) || a.includes(n)); };
   // 1) nama cocok + mata uang cocok, 2) mata uang cocok (kalau bukan IDR), 3) nama cocok, 4) default
-  let w = S.wallets.find(w => nameHit(w) && w.currency === cur);
-  if (!w && cur !== 'IDR') w = S.wallets.find(w => w.currency === cur);
-  if (!w) w = S.wallets.find(nameHit);
+  let w = data.wallets.find(w => nameHit(w) && w.currency === cur);
+  if (!w && cur !== 'IDR') w = data.wallets.find(w => w.currency === cur);
+  if (!w) w = data.wallets.find(nameHit);
   if (w) return w.id;
   const d = getSync().wallet;
-  return S.wallets.find(w => w.id === d) ? d : (S.wallets[0] || {}).id;
+  return data.wallets.find(w => w.id === d) ? d : (data.wallets[0] || {}).id;
 }
 
 let pulling = false, lastPull = 0;
@@ -419,23 +452,34 @@ async function pullInbox(manual) {
   if (!manual && Date.now() - lastPull < 20000) return;
   pulling = true; lastPull = Date.now();
   try {
-    const j = await api('pull', { categories: catsPayload() });
+    // Back Tap masuk ke space yang dipilih di pengaturan Otomatis (default: space pertama)
+    const sp = getSpaces();
+    const tgt = sp.list.some(x => x.id === getSync().space) ? getSync().space : sp.list[0].id;
+    const isActive = tgt === sp.active;
+    const data = isActive ? S : loadSpace(tgt);
+    const cats = { out: data.categories.filter(c => c.type === 'out').map(c => c.name), in: data.categories.filter(c => c.type === 'in').map(c => c.name) };
+    const j = await api('pull', { categories: cats });
     const items = j.items || [];
     let added = 0;
     for (const it of items) {
       const id = 'bt_' + it.id;
-      if (S.tx.some(t => t.id === id)) continue;
+      if (data.tx.some(t => t.id === id)) continue;
       const type = it.type === 'in' ? 'in' : 'out';
-      const wid = mapWallet(it.app, it.currency);
-      S.tx.push({
-        id, type, amount: roundC(it.amount, curOf(wid)), cat: mapCat(it.category, type),
+      const wid = mapWallet(it.app, it.currency, data);
+      const wc = (data.wallets.find(w => w.id === wid) || {}).currency || 'IDR';
+      data.tx.push({
+        id, type, amount: roundC(it.amount, wc), cat: mapCat(it.category, type, data),
         wallet: wid, date: /^\d{4}-\d{2}-\d{2}$/.test(it.date) ? it.date : todayStr(),
         note: it.merchant || it.note || '', created: Date.parse(it.created) || Date.now(), src: 'auto'
       });
       added++;
     }
     if (items.length) await api('ack', { ids: items.map(i => i.id) });
-    if (added) { save(); render(); toast(`⚡ ${added} transaksi baru dari Back Tap`); }
+    if (added) {
+      if (isActive) { save(); render(); }
+      else { saveSpace(tgt, data); doBackup(false, tgt, data); }
+      toast(`⚡ ${added} transaksi baru dari Back Tap${isActive ? '' : ' → space ' + spaceInfo(tgt).name}`);
+    }
     else if (manual) toast('Tidak ada transaksi baru');
   } catch (e) {
     if (manual) toast(e.message);
@@ -445,15 +489,16 @@ async function pullInbox(manual) {
 let backupT = null;
 function scheduleBackup() {
   if (!isLinked()) return;
-  try { localStorage.setItem(KEY + '.dirty', '1'); } catch (e) {}
+  try { localStorage.setItem(spaceKey(getSpaces().active) + '.dirty', '1'); } catch (e) {}
   clearTimeout(backupT);
   backupT = setTimeout(() => doBackup(false), 5000);
 }
-async function doBackup(manual) {
+async function doBackup(manual, sid, sdata) {
   if (!isLinked()) return;
+  const id = sid || getSpaces().active, d = sdata || S;
   try {
-    const j = await api('backup', { data: { version: S.version, wallets: S.wallets, categories: S.categories, tx: S.tx, budgets: S.budgets, rates: S.rates } });
-    try { localStorage.removeItem(KEY + '.dirty'); } catch (e) {}
+    const j = await api('backup', { space: spaceInfo(id), data: { version: d.version, wallets: d.wallets, categories: d.categories, tx: d.tx, budgets: d.budgets, rates: d.rates, mainCur: d.mainCur, budgetCur: d.budgetCur, budgetOn: d.budgetOn } });
+    try { localStorage.removeItem(spaceKey(id) + '.dirty'); } catch (e) {}
     const c = getSync(); c.lastBackup = j.at || new Date().toISOString(); setSync(c);
     if (manual) { toast(`Backup ${j.count} transaksi ke Google ✅`); if (tab === 'more') render(); }
   } catch (e) { if (manual) toast(e.message); }
@@ -1008,7 +1053,10 @@ function viewMore() {
   const sc = getSync();
   const linked = isLinked();
   const lb = sc.lastBackup ? new Date(sc.lastBackup).toLocaleString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'belum pernah';
-  return `<div class="card list" style="padding:4px 16px"><h3 style="margin:12px 0 4px">Fitur</h3>
+  return `<div class="card list" style="padding:4px 16px"><h3 style="margin:12px 0 4px">Space</h3>
+    <button class="row" id="spaceBtn2"><span class="sav big" style="background:${activeSpace().color || SPACE_COLORS[0]}">${esc(activeSpace().name.trim()[0].toUpperCase())}</span><span class="tx1">${esc(activeSpace().name)}<br><span class="small muted">Ganti, tambah, atau ubah space</span></span><span class="chev">›</span></button></div>
+
+    <div class="card list" style="padding:4px 16px"><h3 style="margin:12px 0 4px">Fitur</h3>
     <button class="row" id="mainCurBtn"><span class="ic">⭐️</span><span class="tx1">Mata uang utama<br><span class="small muted">Tampil paling besar di Total saldo</span></span><span class="num">${mainCur()}</span><span class="chev">›</span></button>
     <button class="row" id="tglBudget"><span class="ic">🎯</span><span class="tx1">Budget bulanan<br><span class="small muted">${budgetOn() ? 'Aktif: budget tampil di Beranda' : 'Mati: cukup catat pengeluaran saja'}</span></span><span class="sw ${budgetOn() ? 'on' : ''}" role="switch" aria-checked="${budgetOn()}"></span></button>
     ${budgetOn() ? `<button class="row" id="budAll3"><span class="ic">⚙️</span><span class="tx1">Atur budget & mata uang budget</span><span class="chev">›</span></button>` : ''}</div>
@@ -1046,6 +1094,10 @@ function viewMore() {
 }
 
 function render() {
+  const sp = activeSpace();
+  $('#spaceName').textContent = sp.name;
+  $('#spaceAv').textContent = (sp.name || '?').trim()[0].toUpperCase();
+  $('#spaceAv').style.background = sp.color || SPACE_COLORS[0];
   $('#title').textContent = TITLES[tab];
   $('#mLabel').textContent = monthLabel(viewYM);
   $('#monthNav').style.visibility = tab === 'more' ? 'hidden' : 'visible';
@@ -1370,6 +1422,73 @@ function openCat(id) {
   };
 }
 
+// ---------- Space ----------
+function switchSpace(id) {
+  const sp = getSpaces(); if (sp.active === id) { closeSheet(); return; }
+  saveSpace(sp.active, S);
+  sp.active = id; setSpaces(sp);
+  S = loadSpace(id);
+  viewCur = null; homeType = 'out'; histQuery = ''; histFilter = 'all';
+  closeSheet(); tab = 'home'; render(); window.scrollTo(0, 0);
+  toast('Pindah ke space ' + activeSpace().name);
+  try { if (localStorage.getItem(spaceKey(id) + '.dirty') === '1') doBackup(false); } catch (e) {}
+}
+function openSpaces() {
+  const sp = getSpaces();
+  openSheet(`<div class="shead"><button data-close>Tutup</button><h2>Space</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin:0 4px 10px">Tiap space punya dompet, kategori, transaksi, dan budget sendiri. Cocok untuk memisahkan keuangan pribadi dan kantor.</p>
+    <div class="card list" style="padding:4px 16px">${sp.list.map(x => {
+      const d = x.id === sp.active ? S : loadSpace(x.id);
+      return `<div class="row sprow"><button class="spsel" data-space="${x.id}"><span class="sav big" style="background:${x.color || SPACE_COLORS[0]}">${esc((x.name || '?').trim()[0].toUpperCase())}</span>
+        <span class="tx1"><b style="font-weight:500">${esc(x.name)}</b><br><span class="small muted">${d.wallets.length} dompet · ${d.tx.length} transaksi</span></span>
+        ${x.id === sp.active ? '<span class="link" style="font-size:18px">✓</span>' : ''}</button>
+        <button class="spedit" data-spedit="${x.id}" aria-label="Ubah ${esc(x.name)}">✏️</button></div>`;
+    }).join('')}</div>
+    <button class="btn" id="spaceAdd">+ Tambah space baru</button>`);
+}
+function openSpaceForm(id) {
+  const sp = getSpaces();
+  const x = id ? sp.list.find(s => s.id === id) : null;
+  let color = x ? x.color : SPACE_COLORS[sp.list.length % SPACE_COLORS.length];
+  openSheet(`<div class="shead"><button data-close>Batal</button><h2>${x ? 'Ubah' : 'Tambah'} space</h2><button id="spSave" style="font-weight:600">Simpan</button></div>
+    <div class="field"><label>Nama space</label><input id="spName" value="${esc(x ? x.name : '')}" placeholder="mis. Kantor, Usaha, Keluarga"></div>
+    <div class="field" style="padding-bottom:12px"><label>Warna</label><div class="spcolors">${SPACE_COLORS.map(c => `<button type="button" class="spc ${c === color ? 'on' : ''}" data-spc="${c}" style="background:${c}" aria-label="Warna"></button>`).join('')}</div></div>
+    ${x ? '' : `<div class="field"><label>Mata uang utama</label><select id="spCur">${Object.entries(CURRENCIES).map(([c, n]) => `<option value="${c}" ${c === mainCur() ? 'selected' : ''}>${c} · ${esc(n)}</option>`).join('')}</select></div>
+      <div class="hint">Space baru mulai kosong dengan kategori bawaan dan dompet Tunai, Rekening, dan E-Wallet. Semuanya bisa diubah nanti.</div>`}
+    <button class="btn" id="spSave2">Simpan</button>
+    ${x && sp.list.length > 1 ? '<button class="btn ghost" id="spDel">Hapus space ini</button>' : ''}`);
+  $('#sheet').querySelectorAll('[data-spc]').forEach(b => b.onclick = () => { color = b.dataset.spc; $('#sheet').querySelectorAll('[data-spc]').forEach(y => y.classList.toggle('on', y === b)); });
+  setTimeout(() => { try { $('#spName').focus(); } catch (e) {} }, 320);
+  $('#spSave').onclick = $('#spSave2').onclick = () => {
+    const name = $('#spName').value.trim(); if (!name) { toast('Isi nama space'); return; }
+    const s2 = getSpaces();
+    if (x) {
+      const t = s2.list.find(s => s.id === x.id); t.name = name; t.color = color; setSpaces(s2);
+      closeSheet(); render(); toast('Space disimpan');
+    } else {
+      const nid = 'sp_' + uid();
+      const d = normalize(defaults());
+      d.mainCur = $('#spCur').value;
+      d.wallets.forEach(w => w.currency = d.mainCur);
+      d.budgetCur = d.mainCur;
+      saveSpace(nid, d);
+      s2.list.push({ id: nid, name, color }); setSpaces(s2);
+      switchSpace(nid);
+    }
+  };
+  if ($('#spDel')) $('#spDel').onclick = async () => {
+    const d = x.id === getSpaces().active ? S : loadSpace(x.id);
+    if (!(await ask(`Hapus space "${x.name}" beserta ${d.tx.length} transaksinya dari HP ini? Backup di Google Drive (kalau ada) tidak ikut terhapus.`, 'Hapus space'))) return;
+    const s2 = getSpaces();
+    s2.list = s2.list.filter(s => s.id !== x.id);
+    try { localStorage.removeItem(spaceKey(x.id)); localStorage.removeItem(spaceKey(x.id) + '.dirty'); } catch (e) {}
+    const c = getSync(); if (c.space === x.id) { delete c.space; setSync(c); }
+    if (s2.active === x.id) { s2.active = s2.list[0].id; setSpaces(s2); S = loadSpace(s2.active); viewCur = null; }
+    else setSpaces(s2);
+    closeSheet(); tab = 'home'; render(); toast('Space dihapus');
+  };
+}
+
 // Pilih mata uang utama
 function openMainCur() {
   const used = usedCurs();
@@ -1452,9 +1571,10 @@ function exportCsv() {
       pend.has(t.id) ? 'Belum lunas (CC)' : '', t.note || '']);
   }
   const csv = '﻿' + rows.map(r => r.map(v => { const s = String(v); return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
-  deliverFile(`dompetku-${todayStr()}.csv`, csv, 'text/csv');
+  deliverFile(`dompetku-${slugName()}-${todayStr()}.csv`, csv, 'text/csv');
 }
-function exportJson() { deliverFile(`dompetku-backup-${todayStr()}.json`, JSON.stringify(S, null, 1), 'application/json'); }
+const slugName = () => (activeSpace().name || 'space').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'space';
+function exportJson() { deliverFile(`dompetku-${slugName()}-backup-${todayStr()}.json`, JSON.stringify(S, null, 1), 'application/json'); }
 $('#photoIn').addEventListener('change', async e => {
   const f = e.target.files[0]; e.target.value = ''; if (!f || !D) return;
   const pb = $('#photoBtn');
@@ -1487,15 +1607,23 @@ function openSync() {
     <p class="small muted" style="margin:0 4px 12px;line-height:1.5">Hubungkan ke backend Google Apps Script milikmu supaya Back Tap, foto struk, dan backup ke Google Sheets bisa jalan. Langkahnya ada di file <b>PANDUAN-OTOMATIS.md</b>.</p>
     <div class="field"><label>URL Web App (…/exec)</label><input id="sUrl" value="${esc(c.url || '')}" placeholder="https://script.google.com/macros/s/…/exec" autocapitalize="off" autocomplete="off" spellcheck="false"></div>
     <div class="field"><label>Token</label><input id="sTok" value="${esc(c.token || '')}" placeholder="dari Execution log setup()" autocapitalize="off" autocomplete="off" spellcheck="false"></div>
-    <div class="field"><label>Dompet default untuk Back Tap</label><select id="sWal">${S.wallets.map(w => `<option value="${w.id}" ${w.id === c.wallet ? 'selected' : ''}>${esc(w.icon)} ${esc(w.name)}</option>`).join('')}</select></div>
+    ${getSpaces().list.length > 1 ? `<div class="field"><label>Back Tap masuk ke space</label><select id="sSpace">${getSpaces().list.map(x => `<option value="${x.id}" ${x.id === (c.space || getSpaces().list[0].id) ? 'selected' : ''}>${esc(x.name)}</option>`).join('')}</select></div>` : ''}
+    <div class="field"><label>Dompet default untuk Back Tap</label><select id="sWal"></select></div>
     <div class="hint">Kalau nama aplikasi pembayar (mis. GoPay, BCA) cocok dengan nama salah satu dompetmu, transaksi otomatis masuk ke dompet itu. Kalau tidak cocok, masuk ke dompet default ini.</div>
     <button class="btn" id="sSave">Simpan & tes koneksi</button>
     ${c.url ? '<button class="btn ghost" id="sOff">Putuskan koneksi</button>' : ''}`);
+  const fillWal = () => {
+    const sid = $('#sSpace') ? $('#sSpace').value : getSpaces().list[0].id;
+    const ws = sid === getSpaces().active ? S.wallets : loadSpace(sid).wallets;
+    $('#sWal').innerHTML = ws.map(w => `<option value="${w.id}" ${w.id === c.wallet ? 'selected' : ''}>${esc(w.icon)} ${esc(w.name)}${w.currency !== mainCur() ? ' (' + w.currency + ')' : ''}</option>`).join('');
+  };
+  fillWal();
+  if ($('#sSpace')) $('#sSpace').onchange = fillWal;
   $('#sSave').onclick = async () => {
     const url = $('#sUrl').value.trim(), token = $('#sTok').value.trim();
     if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(url)) { toast('URL harus dari script.google.com'); return; }
     if (!token) { toast('Isi token'); return; }
-    setSync(Object.assign(getSync(), { url, token, wallet: $('#sWal').value }));
+    setSync(Object.assign(getSync(), { url, token, wallet: $('#sWal').value, space: $('#sSpace') ? $('#sSpace').value : getSpaces().list[0].id }));
     const b = $('#sSave'); b.disabled = true; b.textContent = 'Menghubungkan…';
     try {
       const j = await api('ping');
@@ -1514,8 +1642,8 @@ $('#fileIn').addEventListener('change', async e => {
   try {
     const d = JSON.parse(await f.text());
     if (!d || !Array.isArray(d.tx) || !Array.isArray(d.wallets)) throw new Error('bad');
-    if (await ask(`Pulihkan ${d.tx.length} transaksi dari backup? Data yang ada sekarang akan diganti.`, 'Pulihkan')) {
-      S = Object.assign(defaults(), d); save(); render(); toast('Data dipulihkan');
+    if (await ask(`Pulihkan ${d.tx.length} transaksi dari backup ke space "${activeSpace().name}"? Data space ini akan diganti.`, 'Pulihkan')) {
+      S = normalize(Object.assign(defaults(), d)); save(); render(); toast('Data dipulihkan');
     }
   } catch (err) { toast('File backup tidak valid'); }
 });
@@ -1538,6 +1666,10 @@ document.addEventListener('click', async e => {
   if (t.dataset.bcur) { setBudgetCur(t.dataset.bcur); return; }
   if (t.id === 'budAll' || t.id === 'budAll2' || t.id === 'budAll3') { e.preventDefault(); openBudgetList(); return; }
   if (t.id === 'mainCurBtn') { openMainCur(); return; }
+  if (t.id === 'spaceBtn' || t.id === 'spaceBtn2') { openSpaces(); return; }
+  if (t.id === 'spaceAdd') { openSpaceForm(null); return; }
+  if (t.dataset.space) { switchSpace(t.dataset.space); return; }
+  if (t.dataset.spedit) { openSpaceForm(t.dataset.spedit); return; }
   if (t.dataset.mcur) { S.mainCur = t.dataset.mcur; viewCur = t.dataset.mcur; save(); closeSheet(); render(); toast(`Mata uang utama: ${t.dataset.mcur}`); return; }
   if (t.id === 'tglBudget') { S.budgetOn = !budgetOn(); save(); render(); toast(S.budgetOn ? 'Budget diaktifkan' : 'Budget dimatikan. Data budget tetap tersimpan.'); return; }
   if (t.dataset.filter) { histFilter = t.dataset.filter; document.querySelectorAll('[data-filter]').forEach(x => x.classList.toggle('on', x === t)); $('#hList').innerHTML = histList(); return; }
@@ -1547,11 +1679,11 @@ document.addEventListener('click', async e => {
   if (t.id === 'syncBackup') { doBackup(true); return; }
   if (t.id === 'syncRestore') {
     try {
-      const j = await api('restore');
+      const j = await api('restore', { space: spaceInfo() });
       const d = j.data;
       if (!d || !Array.isArray(d.tx)) throw new Error('Backup di Drive tidak valid');
-      if (await ask(`Pulihkan ${d.tx.length} transaksi dari Google Drive? Data di HP ini akan diganti.`, 'Pulihkan')) {
-        S = Object.assign(defaults(), d); save(); render(); toast('Data dipulihkan dari Drive');
+      if (await ask(`Pulihkan ${d.tx.length} transaksi dari Google Drive ke space "${activeSpace().name}"? Data space ini di HP akan diganti.`, 'Pulihkan')) {
+        S = normalize(Object.assign(defaults(), d)); save(); render(); toast('Data dipulihkan dari Drive');
       }
     } catch (er) { toast(er.message); }
     return;
@@ -1572,13 +1704,21 @@ render();
 
 // Tarik transaksi Back Tap saat aplikasi dibuka / kembali ke layar
 pullInbox(false);
-try { if (localStorage.getItem(KEY + '.dirty') === '1') doBackup(false); } catch (e) {}
+try { if (localStorage.getItem(spaceKey(getSpaces().active) + '.dirty') === '1') doBackup(false); } catch (e) {}
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') pullInbox(false); });
 window.addEventListener('online', () => { lastPull = 0; pullInbox(false); });
 
 // ---------- Offline (service worker) ----------
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-  window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); });
+  const hadController = !!navigator.serviceWorker.controller;
+  let reloaded = false;
+  // Versi baru aktif → muat ulang sekali supaya tampilan terbaru langsung muncul
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (hadController && !reloaded) { reloaded = true; location.reload(); }
+  });
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(r => { try { r.update(); } catch (e) {} }).catch(() => {});
+  });
 }
 })();
 </script>
