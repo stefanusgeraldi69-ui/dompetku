@@ -1,5 +1,5 @@
 // Dompetku service worker: bikin aplikasi tetap bisa dibuka tanpa internet.
-const CACHE = 'dompetku-v8';
+const CACHE = 'dompetku-v9';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
