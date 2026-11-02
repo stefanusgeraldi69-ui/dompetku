@@ -2,7 +2,7 @@
 // - Halaman utama (index.html): ambil dari internet dulu supaya update langsung terasa,
 //   pakai salinan cache kalau sedang offline.
 // - File lain (ikon, manifest): ambil dari cache dulu, perbarui di belakang layar.
-const CACHE = 'dompetku-v10';
+const CACHE = 'dompetku-v13';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
@@ -19,7 +19,7 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== CACHE + '-font').map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -28,6 +28,18 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
+  // Font Google: simpan sekali, supaya tampilan tetap sama saat offline
+  if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
+    e.respondWith(
+      caches.open(CACHE + '-font').then(async c => {
+        const hit = await c.match(req);
+        if (hit) return hit;
+        try { const res = await fetch(req); if (res && (res.ok || res.type === 'opaque')) c.put(req, res.clone()); return res; }
+        catch (err) { return hit || Response.error(); }
+      })
+    );
+    return;
+  }
   if (url.origin !== location.origin) return;
 
   const isPage = req.mode === 'navigate' || url.pathname.endsWith('/') || url.pathname.endsWith('/index.html');
