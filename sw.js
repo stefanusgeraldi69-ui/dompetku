@@ -2,7 +2,7 @@
 // - Halaman utama (index.html): ambil dari internet dulu supaya update langsung terasa,
 //   pakai salinan cache kalau sedang offline.
 // - File lain (ikon, manifest): ambil dari cache dulu, perbarui di belakang layar.
-const CACHE = 'dompetku-v13';
+const CACHE = 'dompetku-v15';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

@@ -528,6 +528,84 @@ nav.tabs .add span{width:54px;height:54px;margin-top:-26px;background:var(--acce
 .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .sw.on{background:var(--accent)}
 nav.tabs .add span{box-shadow:0 8px 24px rgba(61,139,255,.45)}
+
+/* ---------- Utang-piutang & Goals ---------- */
+.wseg button{position:relative;font-size:13.5px}
+.bdot{position:absolute;top:5px;right:8px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+nav.tabs button.alert{position:relative}
+nav.tabs button.alert::after{content:'';position:absolute;top:2px;left:calc(50% + 8px);width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--bg)}
+.dsum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.dbox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px;display:flex;flex-direction:column;gap:2px}
+.dbox .lbl{font-weight:700;font-size:15px}
+.dbox b{font-size:19px;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px;line-height:1.15}
+.dalert{display:flex;gap:8px;align-items:center;background:color-mix(in srgb,var(--red) 14%,transparent);color:var(--red);border-radius:14px;padding:10px 12px;font-size:13.5px;font-weight:600;margin-bottom:12px}
+.dav{flex:0 0 auto;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:17px}
+.dav.big{width:48px;height:48px;font-size:20px}
+.dmeta .due{font-weight:600}
+.due.soon{color:var(--gold)}.due.over{color:var(--red)}.due.ok{color:var(--green)}
+.dclosed summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer}
+.dclosed summary::-webkit-details-marker{display:none}
+.dclosed summary::after{content:'›';color:var(--muted);transform:rotate(90deg);margin-left:8px}
+.dclosed[open] summary::after{transform:rotate(-90deg)}
+.dclosed summary .small{margin-left:auto}
+.dremind h3 a{font-size:13.5px}
+.dmini{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:2px 0 4px}
+.dmini b{font-weight:700;margin-left:3px}
+.swrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border-radius:14px;padding:10px 14px;margin-bottom:10px}
+.swrow .tx1{flex:1;line-height:1.3}.swrow .tx1 b{font-weight:600;font-size:15px}
+.duechips{flex-wrap:wrap;margin:-2px 0 12px}
+.duechips .chip{padding:6px 12px;font-size:13px}
+.seg button[disabled]{opacity:.35}
+.ddcard{margin-bottom:12px}
+.ddtop{display:flex;gap:12px;align-items:center}
+.ddlbl{font-weight:600;margin-top:2px}
+.ddbig{font-size:34px;font-weight:800;letter-spacing:-.035em;margin:14px 0 4px}
+.dddue{margin-top:12px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.dddue.soon{color:var(--gold)}.dddue.over{color:var(--red)}
+h3.sub{font-size:15px;font-weight:700;margin:18px 4px 8px}
+.gcard{display:block;width:100%;text-align:left}
+.gtop{display:flex;align-items:center;gap:12px}
+.gic{width:44px;height:44px;border-radius:14px;background:var(--accent-soft);display:grid;place-items:center;font-size:22px;flex:0 0 auto}
+.gnm{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.gnm b{font-weight:700;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gpill{flex:0 0 auto;font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:99px;background:var(--chip);color:var(--muted)}
+.gpill.ok{background:color-mix(in srgb,var(--green) 16%,transparent);color:var(--green)}
+.gpill.warn{background:color-mix(in srgb,var(--gold) 18%,transparent);color:var(--gold)}
+.gpill.over{background:color-mix(in srgb,var(--red) 16%,transparent);color:var(--red)}
+.gcard .bar{margin-top:14px;height:9px}
+.gcard .bar i{background:var(--accent)}
+.gnums{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;font-size:14px}
+.gnums b{font-weight:700}
+.gsub{margin-top:4px}
+.gsum{display:flex;align-items:center;gap:14px}
+.gsum>div{flex:1;display:flex;flex-direction:column;gap:2px}
+.gsum b{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.15}
+.gsumn{display:flex;flex-direction:column;align-items:center;padding-left:12px;border-left:1px solid var(--line)}
+.gsumn b{font-size:22px}
+.gring{flex:0 0 auto}
+.gdcard{display:flex;flex-direction:column;align-items:stretch;margin-bottom:12px}
+.gdring{position:relative;width:132px;height:132px;margin:4px auto 10px}
+.gdpct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.gdpct b{font-size:30px;font-weight:800;letter-spacing:-.03em}
+.gdnums{text-align:center;display:flex;flex-direction:column;gap:2px}
+.gdnums b{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.gdone{text-align:center;background:var(--accent-soft);color:var(--accent);border-radius:14px;padding:12px;font-weight:600;margin-top:10px}
+.gplan{background:var(--accent-soft);border-radius:14px;padding:12px 14px;font-size:14px;margin:0 0 10px;line-height:1.45}
+.gplan:empty{display:none}
+.flabel{font-size:12.5px;color:var(--muted);font-weight:600;margin:4px 4px 6px}
+
+.thin2{height:5px!important;margin-top:10px!important}
+.thin2 i{background:var(--accent-2)!important;opacity:.7}
+.mbars{display:flex;gap:8px;align-items:flex-end;margin-top:16px;height:118px}
+.mb{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
+.mbv{font-size:10.5px;color:var(--muted);height:13px}
+.mbt{position:relative;flex:1;width:100%;max-width:34px;background:var(--chip);border-radius:8px;overflow:hidden;display:flex;align-items:flex-end}
+.mbt i{display:block;width:100%;background:color-mix(in srgb,var(--accent) 45%,transparent);border-radius:8px 8px 0 0}
+.mbt i.ok{background:var(--accent)}
+.mbt em{position:absolute;left:0;right:0;border-top:1.5px dashed var(--text);opacity:.55}
+.mbl{font-size:11px;color:var(--muted);white-space:nowrap}
+.mbkey{display:inline-block;width:14px;border-top:1.5px dashed var(--text);opacity:.55;vertical-align:middle;margin-right:6px}
+button.link{background:none;padding:0;font:inherit;font-weight:600}
 </style>
 </head>
 <body>
@@ -720,7 +798,199 @@ const EN_RE = [
   [/^Data utama ada di HP ini .* (\d+) transaksi tercatat\.$/, 'Your data lives on this phone and is backed up to your Google Drive & Sheets after every change. Photos/screenshots are only sent to Gemini to be read and are not stored. $1 transactions recorded.'],
   [/^Awal bulan (.+)$/, (m, a) => 'Start of month ' + tr(a)], [/^Akhir (.+)$/, (m, a) => 'End ' + tr(a)]
 ];
+Object.assign(EN, {
+  'Utang-piutang': 'Debts',
+  '🤝 Utang-piutang': '🤝 Debts',
+  'Goals': 'Goals',
+  'Piutang': 'Owed to you',
+  'Utang': 'You owe',
+  'Orang ngutang ke kamu': 'People who owe you',
+  'Kamu ngutang': 'What you owe',
+  'Belum ada catatan utang-piutang.': 'No debts recorded yet.',
+  'Catat siapa yang pinjam uangmu (atau kamu pinjam ke siapa), lengkap dengan jatuh temponya.': 'Record who borrowed your money (or who you borrowed from), with a due date.',
+  '＋ Piutang': '＋ Owed to me',
+  '＋ Utang': '＋ I owe',
+  'Sudah lunas': 'Paid off',
+  'Lihat semua': 'See all',
+  'Tanpa jatuh tempo': 'No due date',
+  '✓ Lunas': '✓ Paid',
+  'Lunas': 'Paid',
+  'Jatuh tempo hari ini': 'Due today',
+  'Jatuh tempo besok': 'Due tomorrow',
+  'Catat utang-piutang': 'Record a debt',
+  'Ubah catatan': 'Edit record',
+  'Orang ngutang ke saya': 'Someone owes me',
+  'Saya ngutang': 'I owe someone',
+  'Siapa yang pinjam?': 'Who borrowed?',
+  'Pinjam ke siapa?': 'Who did you borrow from?',
+  'Nama orang': 'Name',
+  'Nominal': 'Amount',
+  'Uangnya dari dompet': 'Money taken from',
+  'Uangnya masuk ke dompet': 'Money goes into',
+  'Kurangi saldo dompet sekarang': 'Deduct from wallet now',
+  'Tambah saldo dompet sekarang': 'Add to wallet now',
+  'Matikan kalau cuma mencatat utang lama yang sudah tidak memengaruhi saldo.': "Turn off if you're only recording an old debt that no longer affects your balance.",
+  'Tanggal': 'Date',
+  'Jatuh tempo': 'Due date',
+  '1 minggu': '1 week',
+  '2 minggu': '2 weeks',
+  '1 bulan': '1 month',
+  '3 bulan': '3 months',
+  '6 bulan': '6 months',
+  '1 tahun': '1 year',
+  '2 tahun': '2 years',
+  'Tanpa': 'None',
+  'Catatan (opsional)': 'Note (optional)',
+  'mis. Patungan tiket konser': 'e.g. Concert tickets split',
+  'Hapus catatan': 'Delete record',
+  'Isi nama orangnya': 'Enter a name',
+  'Isi nominalnya': 'Enter the amount',
+  'Nominal tidak boleh lebih kecil dari yang sudah dibayar': "Amount can't be less than what's already been paid",
+  'Jatuh tempo tidak boleh sebelum tanggal pinjam': "Due date can't be before the loan date",
+  'Piutang dicatat': 'Loan recorded',
+  'Utang dicatat': 'Debt recorded',
+  'Hapus catatan ini? Perubahan saldo dompet dari catatan ini (pinjaman & pembayaran) ikut dibatalkan.': 'Delete this record? Wallet balance changes from it (loan & payments) will be undone.',
+  'Hapus catatan ini?': 'Delete this record?',
+  'Catatan dihapus': 'Record deleted',
+  'Buat dompet/rekening biasa dulu': 'Create a regular wallet/account first',
+  'Belum dibayar ke kamu': 'Not yet paid back',
+  'Belum kamu bayar': 'Not yet paid',
+  'Terima bayaran': 'Receive payment',
+  'Bayar utang': 'Pay debt',
+  '✓ Lunas semua': '✓ Mark as paid',
+  'Riwayat': 'History',
+  'Pinjaman awal dicatat tanpa mengubah saldo dompet.': 'The original loan was recorded without changing the wallet balance.',
+  'Pembayaran menambah saldo dompet tapi tidak dihitung sebagai pemasukan.': "Repayments add to your wallet balance but don't count as income.",
+  'Pembayaran mengurangi saldo dompet tapi tidak dihitung sebagai pengeluaran.': "Repayments reduce your wallet balance but don't count as spending.",
+  'Hapus pembayaran ini? Saldo dompet dikembalikan seperti sebelumnya.': 'Delete this payment? The wallet balance goes back to what it was.',
+  'Pembayaran dihapus': 'Payment deleted',
+  'Pembayaran dicatat': 'Payment recorded',
+  '✅ Lunas!': '✅ Paid off!',
+  'Setengah': 'Half',
+  'Masuk ke dompet': 'Into wallet',
+  'Bayar dari dompet': 'Pay from wallet',
+  'Saldo dompet bertambah, tidak dihitung sebagai pemasukan.': 'Wallet balance goes up; not counted as income.',
+  'Saldo dompet berkurang, tidak dihitung sebagai pengeluaran.': 'Wallet balance goes down; not counted as spending.',
+  '🎯 Dikunci untuk goals': '🎯 Set aside for goals',
+  'Bisa dipakai': 'Available',
+  '🎉 Tercapai': '🎉 Reached',
+  'On track': 'On track',
+  'Tertinggal': 'Behind',
+  'Lewat tenggat': 'Past deadline',
+  'Rekening': 'Account',
+  'Disisihkan di': 'Set aside in',
+  'Tanpa tenggat': 'No deadline',
+  'Terkumpul': 'Saved',
+  'dari': 'of',
+  'goals': 'goals',
+  'Belum ada goal.': 'No goals yet.',
+  'Mau nabung buat apa? Liburan, laptop, dana darurat… Pasang target, nanti Dompetku hitung berapa yang perlu disisihkan tiap bulan.': 'What are you saving for? A trip, a laptop, an emergency fund… Set a target and Dompetku works out how much to put aside each month.',
+  '＋ Goal baru': '＋ New goal',
+  'Goal baru': 'New goal',
+  'Ubah goal': 'Edit goal',
+  'Nama goal': 'Goal name',
+  'mis. Trip Jepang, Laptop baru': 'e.g. Japan trip, New laptop',
+  'Uangnya disimpan di mana?': 'Where is the money kept?',
+  'Di dompet yang ada': 'In an existing wallet',
+  'Rekening terpisah': 'Separate account',
+  'Rekening tabungan': 'Savings account',
+  'Disisihkan dari dompet': 'Set aside from wallet',
+  'Mata uang rekening baru': 'New account currency',
+  'Target': 'Target',
+  'Tenggat (opsional)': 'Deadline (optional)',
+  '➕ Buat rekening tabungan baru': '➕ Create a new savings account',
+  'Hapus goal': 'Delete goal',
+  'Isi nama goal': 'Enter a goal name',
+  'Isi targetnya': 'Enter a target',
+  'Pilih dompet': 'Choose a wallet',
+  'Goal disimpan': 'Goal saved',
+  '🎯 Goal dibuat': '🎯 Goal created',
+  'Goal dihapus': 'Goal deleted',
+  'Hapus goal ini? Rekening tabungannya tetap ada.': 'Delete this goal? The savings account stays.',
+  'Hapus goal ini? Dana yang disisihkan kembali bebas dipakai.': 'Delete this goal? The money set aside becomes available again.',
+  'Kurang': 'Still needed',
+  'Tenggat': 'Deadline',
+  'Perlu per bulan': 'Needed per month',
+  'Sisa waktu': 'Time left',
+  '＋ Nabung': '＋ Save',
+  'Ambil': 'Withdraw',
+  'Selamat, goal ini sudah tercapai!': 'Congrats, you reached this goal!',
+  'Riwayat rekening': 'Account history',
+  'Belum ada setoran.': 'Nothing saved yet.',
+  'Disisihkan': 'Set aside',
+  'Diambil': 'Withdrawn',
+  'Sisihkan untuk goal': 'Set aside for goal',
+  'Ambil dari goal': 'Withdraw from goal',
+  'Penuhi target': 'Reach target',
+  '¼ sisa': '¼ of the rest',
+  'Semua yang bisa': 'All available',
+  'Semua': 'All',
+  'Saldo dompet tidak berubah. Dana ini cuma ditandai untuk goal supaya tidak terpakai.': "Your wallet balance doesn't change. This money is just marked for the goal so you don't spend it.",
+  'Dana kembali bebas dipakai. Kalau uangnya dibelanjakan, catat pengeluarannya seperti biasa.': 'The money becomes available again. If you spend it, record the expense as usual.',
+  'Butuh dompet lain sebagai sumber/tujuan': 'You need another wallet as the source/destination',
+  'Perlu nabung': 'Save',
+  'per bulan': 'per month',
+  'Sudah ada': 'Already have',
+  'Bisa dipakai di': 'Available in',
+  'Pembayaran dari': 'Payment from',
+  'Utang/Piutang': 'Debt'
+});
+Object.assign(EN, {
+  '🎯 Target sekali': '🎯 One-time target',
+  '🔁 Rutin per bulan': '🔁 Monthly routine',
+  'mis. Trip Jepang, Dana darurat': 'e.g. Japan trip, Emergency fund',
+  'Nabung per bulan': 'Save per month',
+  'Target total (opsional)': 'Total target (optional)',
+  'Transfer otomatis tiap bulan': 'Auto-transfer every month',
+  'Sisihkan otomatis tiap bulan': 'Auto set-aside every month',
+  'Dompetku mencatat transfer ke rekening tabungan di tanggal yang kamu pilih.': 'Dompetku records a transfer into the savings account on the day you pick.',
+  'Di tanggal yang kamu pilih, nominal bulanan otomatis disisihkan dari dompet ini.': 'On the day you pick, the monthly amount is set aside from this wallet automatically.',
+  'Tiap tanggal': 'Day of month',
+  'Dari dompet': 'From wallet',
+  'Isi nominal per bulan': 'Enter the monthly amount',
+  'Pilih dompet sumber transfer otomatis': 'Choose the source wallet for auto-transfers',
+  'Setahun jadi': 'Per year',
+  'Target total tercapai': 'Total target reached',
+  'Mulai': 'Starts',
+  '✓ Bulan ini': '✓ This month',
+  '🔁 Bulanan': '🔁 Monthly',
+  'bulan ini': 'this month',
+  'Bulan ini': 'This month',
+  'Kurang bulan ini': 'Left this month',
+  'Berturut-turut': 'Streak',
+  'Total terkumpul': 'Total saved',
+  'Target total': 'Total target',
+  '🔁 Atur nabung otomatis': '🔁 Set up auto-saving',
+  'Target bulan ini sudah tercapai!': "This month's target is reached!",
+  'Disisihkan otomatis': 'Set aside automatically',
+  'Sisa bulan ini': 'Rest of this month',
+  'Sebulan': 'One month',
+  'Rutin': 'Monthly',
+  '/bulan': '/month',
+  'Pasang target sekali (liburan, laptop) atau nabung rutin tiap bulan (dana darurat, investasi). Dompetku yang menghitung progresnya.': 'Set a one-time target (a trip, a laptop) or save a fixed amount every month (emergency fund, investing). Dompetku tracks the progress.',
+  'Nabung = Transfer ke rekening ini.': 'Saving = a Transfer into this account.'
+});
 EN['Lainnya '] = 'Other';
+EN_RE.unshift(
+  [/^🔥 (\d+) bulan berturut-turut$/, (m, n) => `🔥 ${n}-month streak`], [/^🔁 Otomatis tiap tgl (\d+)$/, '🔁 Auto on day $1'], [/^Otomatis tiap tanggal (\d+)$/, 'Automatic on day $1'],
+  [/^Target total (.+)$/, 'Total target $1'], [/^Garis = target (.+)\/bulan$/, 'Line = $1/month target'], [/^🔁 (\d+)× nabung otomatis dicatat$/, '🔁 $1 auto-savings recorded'],
+  [/^🔁 Nabung otomatis dicatat \((\d+)×\)$/, '🔁 $1 auto-savings recorded'], [/^🔥 Target bulan ini tercapai: (.+)$/, "🔥 This month's target reached: $1"], [/^dari (.+) bulan ini$/, 'of $1 this month'],
+  [/^±(.+)$/, (m, a) => '±' + a]
+);
+
+EN_RE.unshift(
+  [/^Lewat (\d+) hari$/, '$1 days overdue'], [/^(\d+) hari lagi$/, 'in $1 days'], [/^(\d+) orang$/, (m, n) => n === '1' ? '1 person' : n + ' people'],
+  [/^(\d+) jatuh tempo dalam 3 hari atau sudah lewat$/, '$1 due within 3 days or overdue'], [/^dari (.+)$/, 'of $1'],
+  [/^Pinjamkan ke (.+)$/, 'Lent to $1'], [/^Pinjam dari (.+)$/, 'Borrowed from $1'], [/^Pembayaran dari (.+)$/, 'Payment from $1'], [/^Bayar utang ke (.+)$/, 'Paid back $1'],
+  [/^Sudah dibayar (.+), jadi nominal minimal segitu\.$/, '$1 already paid, so the amount must be at least that.'], [/^Sudah dibayar (.+)$/, 'Paid $1'],
+  [/^Lebih besar dari sisa (.+)$/, 'More than the remaining $1'], [/^Tidak ada dompet (.+)$/, 'No $1 wallet'],
+  [/^Perlu (.+)\/bulan$/, '$1/month needed'], [/^Kurang (.+)$/, '$1 to go'], [/^(\d+) bulan lagi$/, '$1 months to go'], [/^(\d+) bulan$/, (m, n) => n === '1' ? '1 month' : n + ' months'],
+  [/^Bisa dipakai di (.+) (\S+ [\d.,]+)$/, (m, a, b) => 'Available in ' + tr(a) + ' ' + b], [/^Bisa dipakai di (.+)$/, (m, a) => 'Available in ' + tr(a)], [/^🔥 (\d+) bulan$/, (m, n) => n === '1' ? '🔥 1 month' : `🔥 ${n} months`], [/^Terkumpul (.+)$/, 'Saved $1'],
+  [/^Saldo yang bisa dipakai cuma (.+)$/, 'Only $1 available'], [/^Terkumpul cuma (.+)$/, 'Only $1 saved'],
+  [/^Disisihkan untuk (.+)$/, 'Set aside for $1'], [/^Diambil dari (.+)$/, 'Withdrawn from $1'], [/^Nabung (.+)$/, 'Save for $1'], [/^Ambil dari (.+)$/, 'Withdraw from $1'],
+  [/^🎉 (.+) tercapai!$/, '🎉 $1 reached!'], [/^🎯 (.+) sudah (\d+)%$/, '🎯 $1 is $2% there']
+);
+
 function tr(str) {
   if (LANG !== 'en' || !str) return str;
   const t = String(str).trim(); if (!t) return str;
@@ -772,7 +1042,9 @@ const defaults = () => ({
   ],
   tx: [],
   budgets: {},
-  rates: {}
+  rates: {},
+  debts: [],
+  goals: []
 });
 
 // ---------- Mata uang ----------
@@ -799,6 +1071,8 @@ function normalize(d) {
   d.rates = d.rates || {};
   d.budgetCur = d.budgetCur || 'IDR';
   d.mainCur = d.mainCur || 'IDR';
+  d.debts = Array.isArray(d.debts) ? d.debts : [];
+  d.goals = Array.isArray(d.goals) ? d.goals : [];
   if (d.budgetOn === undefined) d.budgetOn = Object.keys(d.budgets || {}).length > 0; // default: aktif kalau sudah pernah pakai budget
   // Perbaikan sekali jalan: transaksi Back Tap / foto yang tanggalnya salah dibaca AI
   // dipindah ke tanggal saat dicatat.
@@ -1109,14 +1383,20 @@ function catColor(id) {
   return COLORS[((i < 0 ? list.length : i) + (c && c.type === 'in' ? 4 : 0)) % COLORS.length];
 }
 const inAmt = t => t.toAmount != null ? t.toAmount : t.amount;   // nominal yang diterima dompet tujuan
+// Pengaruh satu transaksi ke saldo dompet. Utang/piutang ('debt') menggeser saldo
+// tapi tidak dihitung sebagai pemasukan/pengeluaran.
+function txEffect(t, id) {
+  if (!t) return 0;
+  if (t.type === 'in') return t.wallet === id ? t.amount : 0;
+  if (t.type === 'out') return t.wallet === id ? -t.amount : 0;
+  if (t.type === 'transfer') return (t.wallet === id ? -t.amount : 0) + (t.toWallet === id ? inAmt(t) : 0);
+  if (t.type === 'debt') return t.wallet === id ? (t.flow === 'in' ? t.amount : -t.amount) : 0;
+  return 0;
+}
 function walletBalance(id) {
   const w = S.wallets.find(x => x.id === id);
   let b = w ? Number(w.initial) || 0 : 0;
-  for (const t of S.tx) {
-    if (t.type === 'in' && t.wallet === id) b += t.amount;
-    else if (t.type === 'out' && t.wallet === id) b -= t.amount;
-    else if (t.type === 'transfer') { if (t.wallet === id) b -= t.amount; if (t.toWallet === id) b += inAmt(t); }
-  }
+  for (const t of S.tx) b += txEffect(t, id);
   return roundC(b, w ? w.currency : 'IDR');
 }
 // Saldo per mata uang = semua dompet biasa (kartu kredit tidak mengurangi saldo)
@@ -1207,7 +1487,14 @@ function txRow(t) {
   let icon, title, sub, amt, cls;
   const fw = walById(t.wallet), fc = fw.currency || 'IDR';
   let extra = '';
-  if (t.type === 'transfer') {
+  if (t.type === 'debt') {
+    const d = S.debts.find(x => x.id === t.debt) || { person: '?', kind: t.flow === 'out' ? 'lend' : 'borrow' };
+    const lend = d.kind === 'lend';
+    icon = '🤝';
+    title = t.role === 'open' ? (lend ? 'Pinjamkan ke ' : 'Pinjam dari ') + d.person : (lend ? 'Pembayaran dari ' : 'Bayar utang ke ') + d.person;
+    sub = (lend ? 'Piutang' : 'Utang') + ' · ' + fw.name;
+    amt = (t.flow === 'in' ? '+' : '-') + fmtC(t.amount, fc); cls = 'tf';
+  } else if (t.type === 'transfer') {
     const tw = walById(t.toWallet), tc = tw.currency || 'IDR';
     icon = isCC(tw) ? '💳' : '🔁'; title = t.note || (isCC(tw) ? 'Bayar tagihan ' + tw.name : 'Transfer');
     sub = `${fw.name} → ${tw.name}`;
@@ -1325,7 +1612,7 @@ function analyticsCard() {
   const buckets = [];
   for (let s = 1; s <= daysIn; s += 7) buckets.push({ s, e: Math.min(s + 6, daysIn), out: 0, inc: 0 });
   for (const t of txMonth(viewYM)) {
-    if (t.type === 'transfer' || curOf(t.wallet) !== cur) continue;
+    if ((t.type !== 'in' && t.type !== 'out') || curOf(t.wallet) !== cur) continue;
     const b = buckets[Math.floor((Number(t.date.slice(8, 10)) - 1) / 7)];
     if (t.type === 'out') b.out += t.amount; else b.inc += t.amount;
   }
@@ -1378,6 +1665,7 @@ function viewHome() {
       <div><span class="lbl"><i class="flow in" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg></i>Pemasukan</span><b class="num">${fmtBag(inc, { sep: '<br>' })}</b></div>
       <div><span class="lbl"><i class="flow out" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4"/></svg></i>Pengeluaran</span><b class="num">${fmtBag(out, { sep: '<br>' })}</b></div>
     </div></div>`;
+  html += debtReminder();
   html += curChips('Tampilkan grafik dalam');
   html += periodCard();
   html += analyticsCard();
@@ -1418,12 +1706,12 @@ function histList() {
   const q = histQuery.trim().toLowerCase();
   let arr = sortTx(txMonth(viewYM));
   if (histFilter !== 'all') arr = arr.filter(t => t.type === histFilter);
-  if (q) arr = arr.filter(t => (t.note || '').toLowerCase().includes(q) || (t.type !== 'transfer' && catById(t.cat).name.toLowerCase().includes(q)) || walById(t.wallet).name.toLowerCase().includes(q));
+  if (q) arr = arr.filter(t => (t.note || '').toLowerCase().includes(q) || (t.type !== 'transfer' && t.type !== 'debt' && catById(t.cat).name.toLowerCase().includes(q)) || walById(t.wallet).name.toLowerCase().includes(q));
   if (!arr.length) return `<div class="empty"><div class="e">🗂️</div>Tidak ada transaksi${q ? ' yang cocok' : ''} di ${esc(monthLong(viewYM))}.</div>`;
   const groups = {};
   for (const t of arr) (groups[t.date] = groups[t.date] || []).push(t);
   return Object.keys(groups).sort().reverse().map(d => {
-    const net = {}; groups[d].forEach(t => { if (t.type !== 'transfer') bagAdd(net, curOf(t.wallet), t.type === 'in' ? t.amount : -t.amount); });
+    const net = {}; groups[d].forEach(t => { if (t.type === 'in' || t.type === 'out') bagAdd(net, curOf(t.wallet), t.type === 'in' ? t.amount : -t.amount); });
     return `<div class="dayhead"><span>${esc(dayLabel(d))}</span><span class="num">${fmtBag(net, { sign: true })}</span></div><div class="card" style="padding:4px 16px">${groups[d].map(txRow).join('')}</div>`;
   }).join('');
 }
@@ -1441,21 +1729,17 @@ const compactAmt = n => {
 function walletBalanceAt(id, uptoDate) {
   const w = S.wallets.find(x => x.id === id);
   let b = w ? Number(w.initial) || 0 : 0;
-  for (const t of S.tx) {
-    if (t.date > uptoDate) continue;
-    if (t.type === 'in' && t.wallet === id) b += t.amount;
-    else if (t.type === 'out' && t.wallet === id) b -= t.amount;
-    else if (t.type === 'transfer') { if (t.wallet === id) b -= t.amount; if (t.toWallet === id) b += inAmt(t); }
-  }
+  for (const t of S.tx) { if (t.date <= uptoDate) b += txEffect(t, id); }
   return roundC(b, w ? w.currency : 'IDR');
 }
 // Arus satu dompet dalam sebulan (mata uang dompet itu sendiri)
 function walletFlow(id, ym) {
-  const f = { inc: 0, out: 0, tin: 0, tout: 0 };
+  const f = { inc: 0, out: 0, tin: 0, tout: 0, din: 0, dout: 0 };
   for (const t of txMonth(ym)) {
     if (t.type === 'in' && t.wallet === id) f.inc += t.amount;
     else if (t.type === 'out' && t.wallet === id) f.out += t.amount;
     else if (t.type === 'transfer') { if (t.wallet === id) f.tout += t.amount; if (t.toWallet === id) f.tin += inAmt(t); }
+    else if (t.type === 'debt' && t.wallet === id) { if (t.flow === 'in') f.din += t.amount; else f.dout += t.amount; }
   }
   return f;
 }
@@ -1464,8 +1748,9 @@ function walletList() {
     <h3 style="margin:12px 0 2px">Dompet<span class="small muted" style="font-weight:500">${esc(monthLong(viewYM))} · masuk / keluar</span></h3>
     ${S.wallets.map(w => {
       const b = walletBalance(w.id), f = walletFlow(w.id, viewYM), c = w.currency;
-      const masuk = f.inc + f.tin, keluar = f.out + f.tout;
-      const sub = isCC(w) ? (b < 0 ? `Tagihan ${fmtC(-b, c)}` : 'Lunas') : `Saldo ${fmtC(b, c)}`;
+      const masuk = f.inc + f.tin + f.din, keluar = f.out + f.tout + f.dout;
+      const al = allocIn(w.id);
+      const sub = isCC(w) ? (b < 0 ? `Tagihan ${fmtC(-b, c)}` : 'Lunas') : `Saldo ${fmtC(b, c)}` + (al > 0.004 ? ` · 🎯 ${fmtShortC(al, c)}` : '');
       return `<button class="row" data-wdet="${w.id}"><span class="cic ${isCC(w) ? 'ccic' : ''}">${esc(w.icon)}</span>
         <span class="tx1"><b style="font-weight:500">${esc(w.name)}</b><br><span class="small muted num">${sub}</span></span>
         <span class="cr num"><span class="small ${masuk ? 'in' : 'muted'}">+${fmtC(masuk, c)}</span><span class="small ${keluar ? '' : 'muted'}">-${fmtC(keluar, c)}</span></span><span class="chev">›</span></button>`;
@@ -1535,6 +1820,8 @@ function openWalletDetail(id) {
         <div><span>${cc ? 'Bayar tagihan' : 'Transfer masuk'}</span><b>${fmtC(f.tin, c)}</b></div>
         <div><span>Transfer keluar</span><b>${fmtC(f.tout, c)}</b></div>
       </div>
+      ${f.din || f.dout ? `<div class="kv" style="margin:12px 0 0"><span>🤝 Utang-piutang</span><span class="num">+${fmtC(f.din, c)} / -${fmtC(f.dout, c)}</span></div>` : ''}
+      ${allocIn(id) > 0.004 ? `<div class="kv" style="margin:8px 0 0"><span>🎯 Dikunci untuk goals</span><span class="num">${fmtC(allocIn(id), c)}</span></div><div class="kv" style="margin:4px 0 0"><span>Bisa dipakai</span><span class="num">${fmtC(walletBalance(id) - allocIn(id), c)}</span></div>` : ''}
       <div class="kv" style="margin:12px 0 0"><span>Awal bulan ${bl(startBal)}</span><span>Akhir ${bl(endBal)}</span></div>
       ${cc && walletBalance(id) < 0 ? `<button class="btn sec" id="wdPay" style="margin:12px 0 0;padding:11px">💳 Bayar tagihan ${fmtC(-walletBalance(id), c)}</button>` : ''}
     </div>
@@ -1542,8 +1829,13 @@ function openWalletDetail(id) {
   $('#wdEdit').onclick = () => openWallet(id);
   if ($('#wdPay')) $('#wdPay').onclick = () => { openWallet(id); setTimeout(() => { const b = $('#wPay'); if (b) b.click(); }, 0); };
 }
+let wSeg = 'wallet';
 function viewWallet() {
-  return walletList() + curChips('Kalender dalam') + calendarCard();
+  const n = debtAlerts().length;
+  const seg = `<div class="seg wseg">${[['wallet', 'Dompet'], ['debt', 'Utang-piutang'], ['goal', 'Goals']].map(([k, l]) => `<button data-wseg="${k}" class="${wSeg === k ? 'on' : ''}">${l}${k === 'debt' && n ? `<i class="bdot" aria-label="${n} pengingat"></i>` : ''}</button>`).join('')}</div>`;
+  if (wSeg === 'debt') return seg + viewDebts();
+  if (wSeg === 'goal') return seg + viewGoals();
+  return seg + walletList() + curChips('Kalender dalam') + calendarCard();
 }
 
 function viewMore() {
@@ -1596,12 +1888,14 @@ function render() {
   $('#spaceAv').style.background = sp.color || SPACE_COLORS[0];
   $('#title').textContent = TITLES[tab];
   $('#mLabel').textContent = monthLabel(viewYM);
-  $('#monthNav').style.visibility = tab === 'more' ? 'hidden' : 'visible';
+  $('#monthNav').style.visibility = tab === 'more' || (tab === 'wallet' && wSeg !== 'wallet') ? 'hidden' : 'visible';
+  const wb = document.querySelector('#tabs [data-tab="wallet"]'); if (wb) wb.classList.toggle('alert', debtAlerts().length > 0);
   document.querySelectorAll('#tabs [data-tab]').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
   const main = $('#main');
   PEND = pendingCC();
   main.innerHTML = tab === 'home' ? viewHome() : tab === 'history' ? viewHistory() : tab === 'wallet' ? viewWallet() : viewMore();
   trDOM(document.body);
+  goalMilestones();
 }
 
 // ---------- Install tip ----------
@@ -1856,8 +2150,7 @@ function renderTxSheet() {
   const sh = $('#sheet');
   sh.classList.add('txsheet');
   const old = editing ? S.tx.find(x => x.id === D.id) : null;
-  const effectOn = (t, wid) => !t ? 0 : t.type === 'in' && t.wallet === wid ? t.amount : t.type === 'out' && t.wallet === wid ? -t.amount
-    : t.type === 'transfer' ? (t.wallet === wid ? -t.amount : 0) + (t.toWallet === wid ? inAmt(t) : 0) : 0;
+  const effectOn = (t, wid) => txEffect(t, wid);
 
   // Info di dalam pil: saldo dompet sebelum → sesudah, dan sisa budget / total kategori bulan ini
   const sideWallet = (wid, delta) => {
@@ -2215,6 +2508,7 @@ function openWallet(id) {
     if (S.wallets.length === 1) { toast('Minimal harus ada satu dompet'); return; }
     if (await ask(n ? `Dompet ini dipakai di ${n} transaksi. Hapus dompet beserta transaksinya?` : 'Hapus dompet ini?')) {
       S.tx = S.tx.filter(t => t.wallet !== w.id && t.toWallet !== w.id);
+      S.goals.forEach(g => { if (g.wallet === w.id) { g.wallet = ''; g.alloc = []; } });
       S.wallets = S.wallets.filter(x => x.id !== w.id); save(); closeSheet(); render(); toast('Dompet dihapus');
     }
   };
@@ -2265,7 +2559,7 @@ function switchSpace(id) {
   const sp = getSpaces(); if (sp.active === id) { closeSheet(); return; }
   saveSpace(sp.active, S);
   sp.active = id; setSpaces(sp);
-  S = loadSpace(id); runRecurring();
+  S = loadSpace(id); runRecurring(); runGoalAuto();
   viewCur = null; homeType = 'out'; histQuery = ''; histFilter = 'all';
   closeSheet(); tab = 'home'; render(); window.scrollTo(0, 0);
   toast('Pindah ke space ' + activeSpace().name);
@@ -2410,9 +2704,10 @@ function exportCsv() {
   const pend = pendingCC();
   for (const t of sortTx(S.tx).reverse()) {
     const fc = curOf(t.wallet), tf = t.type === 'transfer', tc = tf ? curOf(t.toWallet) : '';
-    rows.push([t.date, t.type === 'in' ? 'Pemasukan' : t.type === 'out' ? 'Pengeluaran' : 'Transfer', tf ? '' : catById(t.cat).name,
-      walById(t.wallet).name, t.amount, fc, tf ? walById(t.toWallet).name : '', tf ? inAmt(t) : '', tc,
-      pend.has(t.id) ? 'Belum lunas (CC)' : '', t.note || '']);
+    const dbt = t.type === 'debt';
+    rows.push([t.date, t.type === 'in' ? 'Pemasukan' : t.type === 'out' ? 'Pengeluaran' : dbt ? 'Utang/Piutang' : 'Transfer', tf || dbt ? '' : catById(t.cat).name,
+      walById(t.wallet).name, dbt && t.flow === 'out' ? -t.amount : t.amount, fc, tf ? walById(t.toWallet).name : '', tf ? inAmt(t) : '', tc,
+      pend.has(t.id) ? 'Belum lunas (CC)' : '', dbt ? debtTitle(t) : (t.note || '')]);
   }
   const csv = '﻿' + rows.map(r => r.map(v => { const s = String(v); return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
   deliverFile(`dompetku-${slugName()}-${todayStr()}.csv`, csv, 'text/csv');
@@ -2494,19 +2789,646 @@ $('#fileIn').addEventListener('change', async e => {
   } catch (err) { toast('File backup tidak valid'); }
 });
 
+// ================================================================
+// UTANG-PIUTANG
+// Pinjamkan uang  → saldo dompet berkurang (bukan pengeluaran)
+// Dibayar kembali → saldo dompet bertambah sesuai nominal (bukan pemasukan)
+// Kebalikannya untuk utang. Fungsi utamanya pengingat: siapa, berapa, kapan jatuh tempo.
+// ================================================================
+const debtTx = id => S.tx.filter(t => t.type === 'debt' && t.debt === id);
+const debtPaid = d => roundC(debtTx(d.id).filter(t => t.role === 'pay').reduce((a, t) => a + t.amount, 0), d.cur);
+const debtLeft = d => Math.max(0, roundC(d.amount - debtPaid(d), d.cur));
+const debtOpen = d => debtLeft(d) > 0.004;
+const dayMs = ds => Date.parse(ds + 'T00:00:00');
+const daysTo = ds => Math.round((dayMs(ds) - dayMs(todayStr())) / 864e5);
+const addDays = (ds, n) => { const x = new Date(dayMs(ds)); x.setDate(x.getDate() + n); return `${x.getFullYear()}-${pad(x.getMonth() + 1)}-${pad(x.getDate())}`; };
+const addMonths = (ds, n) => { const x = new Date(dayMs(ds)); const d0 = x.getDate(); x.setDate(1); x.setMonth(x.getMonth() + n); x.setDate(Math.min(d0, new Date(x.getFullYear(), x.getMonth() + 1, 0).getDate())); return `${x.getFullYear()}-${pad(x.getMonth() + 1)}-${pad(x.getDate())}`; };
+const shortDate = ds => { const x = new Date(dayMs(ds)); const o = { day: 'numeric', month: 'short' }; if (x.getFullYear() !== new Date().getFullYear()) o.year = 'numeric'; return x.toLocaleDateString(LOC, o); };
+function dueInfo(d) {
+  if (!d.due) return null;
+  const n = daysTo(d.due);
+  return { n, cls: n < 0 ? 'over' : n <= 3 ? 'soon' : '', txt: n < 0 ? `Lewat ${-n} hari` : n === 0 ? 'Jatuh tempo hari ini' : n === 1 ? 'Jatuh tempo besok' : `${n} hari lagi` };
+}
+const debtAlerts = () => S.debts.filter(d => debtOpen(d) && d.due && daysTo(d.due) <= 3);
+const personColor = name => { let h = 0; for (const ch of String(name)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return COLORS[h % COLORS.length]; };
+const avatar = (name, cls = '') => `<span class="dav ${cls}" style="background:${personColor(name)}">${esc((String(name).trim()[0] || '?').toUpperCase())}</span>`;
+function debtTitle(t) {
+  const d = S.debts.find(x => x.id === t.debt) || { person: '?', kind: t.flow === 'out' ? 'lend' : 'borrow' };
+  const lend = d.kind === 'lend';
+  return t.role === 'open' ? (lend ? 'Pinjamkan ke ' : 'Pinjam dari ') + d.person : (lend ? 'Pembayaran dari ' : 'Bayar utang ke ') + d.person;
+}
+const debtSort = (a, b) => (a.due ? 0 : 1) - (b.due ? 0 : 1) || (a.due || '').localeCompare(b.due || '') || b.date.localeCompare(a.date);
+
+function debtRow(d, compact = false) {
+  const left = debtLeft(d), paid = debtPaid(d), di = dueInfo(d), lend = d.kind === 'lend';
+  const done = !debtOpen(d);
+  const meta = done ? `<span class="due ok">✓ Lunas</span>`
+    : di ? `<span class="due ${di.cls}">${di.txt}</span>` : `<span>${compact ? (lend ? 'Piutang' : 'Utang') : 'Tanpa jatuh tempo'}</span>`;
+  return `<button class="row drow" data-debt="${d.id}">${avatar(d.person)}
+    <span class="tx1"><b>${esc(d.person)}</b><br><span class="small muted dmeta">${compact && di ? `<span>${lend ? 'Piutang' : 'Utang'}</span><span> · </span>` : ''}${!compact && d.note ? `<span>${esc(d.note)}</span><span> · </span>` : ''}${meta}</span></span>
+    <span class="cr num"><b class="${done ? 'muted' : lend ? 'in' : 'danger'}">${fmtC(done ? d.amount : left, d.cur)}</b>${!done && paid > 0.004 ? `<span class="small muted">dari ${fmtC(d.amount, d.cur)}</span>` : ''}</span><span class="chev">›</span></button>`;
+}
+function viewDebts() {
+  const open = S.debts.filter(debtOpen).sort(debtSort), closed = S.debts.filter(d => !debtOpen(d)).sort((a, b) => b.date.localeCompare(a.date));
+  const lend = open.filter(d => d.kind === 'lend'), borrow = open.filter(d => d.kind === 'borrow');
+  const bag = arr => arr.reduce((b, d) => bagAdd(b, d.cur, debtLeft(d)), {});
+  const al = debtAlerts();
+  let h = `<div class="dsum">
+    <div class="dbox"><span class="lbl">Piutang</span><span class="small muted">Orang ngutang ke kamu</span><b class="num in">${fmtBag(bag(lend), { sep: '<br>' })}</b><span class="small muted">${lend.length} orang</span></div>
+    <div class="dbox"><span class="lbl">Utang</span><span class="small muted">Kamu ngutang</span><b class="num danger">${fmtBag(bag(borrow), { sep: '<br>' })}</b><span class="small muted">${borrow.length} orang</span></div>
+  </div>`;
+  if (al.length) h += `<div class="dalert">⏰ <span>${al.length} jatuh tempo dalam 3 hari atau sudah lewat</span></div>`;
+  if (!open.length && !closed.length) {
+    h += `<div class="card"><div class="empty" style="padding:18px 6px"><div class="e">🤝</div>Belum ada catatan utang-piutang.<br><span class="small">Catat siapa yang pinjam uangmu (atau kamu pinjam ke siapa), lengkap dengan jatuh temponya.</span></div></div>`;
+  }
+  if (lend.length) h += `<div class="card list" style="padding:4px 16px"><h3 style="margin:12px 0 2px">Piutang<span class="small muted" style="font-weight:500">Orang ngutang ke kamu</span></h3>${lend.map(d => debtRow(d)).join('')}</div>`;
+  if (borrow.length) h += `<div class="card list" style="padding:4px 16px"><h3 style="margin:12px 0 2px">Utang<span class="small muted" style="font-weight:500">Kamu ngutang</span></h3>${borrow.map(d => debtRow(d)).join('')}</div>`;
+  h += `<div class="two" style="margin-bottom:12px"><button class="btn sec" data-dnew="lend">＋ Piutang</button><button class="btn sec" data-dnew="borrow">＋ Utang</button></div>`;
+  if (closed.length) h += `<details class="card list dclosed" style="padding:4px 16px"><summary><b>Sudah lunas</b><span class="small muted">${closed.length}</span></summary>${closed.map(d => debtRow(d)).join('')}</details>`;
+  return h;
+}
+// Kartu pengingat di Beranda
+function debtReminder() {
+  const open = S.debts.filter(debtOpen).sort(debtSort);
+  if (!open.length) return '';
+  const bagOf = k => open.filter(d => d.kind === k).reduce((b, d) => bagAdd(b, d.cur, debtLeft(d)), {});
+  const nl = open.filter(d => d.kind === 'lend').length, nb = open.length - nl;
+  return `<div class="card list dremind" style="padding:4px 16px">
+    <h3 style="margin:12px 0 2px">🤝 Utang-piutang<a href="#" data-dgo="1">Lihat semua</a></h3>
+    <div class="dmini num">${nl ? `<span>Piutang <b class="in">${fmtBag(bagOf('lend'))}</b></span>` : ''}${nb ? `<span>Utang <b class="danger">${fmtBag(bagOf('borrow'))}</b></span>` : ''}</div>
+    ${open.slice(0, 3).map(d => debtRow(d, true)).join('')}</div>`;
+}
+
+const debtWallets = () => S.wallets.filter(w => !isCC(w));
+function openDebt(id, kind0) {
+  const d = id && id !== 'new' ? S.debts.find(x => x.id === id) : null;
+  const wl = debtWallets();
+  if (!wl.length) { toast('Buat dompet/rekening biasa dulu'); return; }
+  let kind = d ? d.kind : (kind0 === 'borrow' ? 'borrow' : 'lend');
+  const pays = d ? debtTx(d.id).filter(t => t.role === 'pay') : [];
+  const openT = d ? debtTx(d.id).find(t => t.role === 'open') : null;
+  let move = d ? !!openT : true;
+  let due = d ? d.due || '' : '';
+  const lastW = (() => { try { return localStorage.getItem(KEY + '.lastWallet'); } catch (e) { return null; } })();
+  let wid = d ? d.wallet : (wl.find(w => w.id === lastW) || wl[0]).id;
+  const people = [...new Set(S.debts.map(x => x.person))].sort();
+  const wOpts = () => wl.filter(w => !pays.length || w.currency === d.cur).map(w => `<option value="${w.id}" ${w.id === wid ? 'selected' : ''}>${esc(w.icon)} ${esc(w.name)}${w.currency !== mainCur() ? ' · ' + w.currency : ''}</option>`).join('');
+  const cur = () => curOf(wid);
+  openSheet(`
+    <div class="shead"><button data-close>Batal</button><h2>${d ? 'Ubah catatan' : 'Catat utang-piutang'}</h2><button id="dSave" style="font-weight:600">Simpan</button></div>
+    <div class="seg" style="grid-template-columns:1fr 1fr">${[['lend', 'Orang ngutang ke saya'], ['borrow', 'Saya ngutang']].map(([k, l]) => `<button data-dkind="${k}" class="${kind === k ? 'on' : ''}" ${pays.length && k !== kind ? 'disabled' : ''}>${l}</button>`).join('')}</div>
+    <div class="field"><label id="dPersonLbl">${kind === 'lend' ? 'Siapa yang pinjam?' : 'Pinjam ke siapa?'}</label><input id="dPerson" list="dPeople" autocomplete="off" value="${esc(d ? d.person : '')}" placeholder="Nama orang"><datalist id="dPeople">${people.map(p => `<option value="${esc(p)}">`).join('')}</datalist></div>
+    <div class="field amount"><label>Nominal</label><div class="ar"><span class="rp" id="dCur">${cur()}</span><input id="dAmt" inputmode="${amtMode(cur())}" class="num" placeholder="0" value="${d ? fmtInput(d.amount, d.cur) : ''}"></div></div>
+    ${pays.length ? `<div class="hint">Sudah dibayar ${fmtC(debtPaid(d), d.cur)}, jadi nominal minimal segitu.</div>` : ''}
+    <div class="field"><label id="dWalLbl">${kind === 'lend' ? 'Uangnya dari dompet' : 'Uangnya masuk ke dompet'}</label><select id="dWal">${wOpts()}</select></div>
+    <button type="button" class="row swrow" id="dMove"><span class="tx1"><b id="dMoveT">${kind === 'lend' ? 'Kurangi saldo dompet sekarang' : 'Tambah saldo dompet sekarang'}</b><br><span class="small muted">Matikan kalau cuma mencatat utang lama yang sudah tidak memengaruhi saldo.</span></span><span class="sw ${move ? 'on' : ''}" role="switch" aria-checked="${move}"></span></button>
+    <div class="two">
+      <div class="field"><label>Tanggal</label><input id="dDate" type="date" value="${d ? d.date : todayStr()}"></div>
+      <div class="field"><label>Jatuh tempo</label><input id="dDue" type="date" value="${due}"></div>
+    </div>
+    <div class="chips duechips">${[['7', '1 minggu'], ['14', '2 minggu'], ['m1', '1 bulan'], ['m3', '3 bulan'], ['', 'Tanpa']].map(([k, l]) => `<button type="button" class="chip" data-due="${k}">${l}</button>`).join('')}</div>
+    <div class="field"><label>Catatan (opsional)</label><input id="dNote" value="${esc(d ? d.note || '' : '')}" placeholder="mis. Patungan tiket konser"></div>
+    <button class="btn" id="dSave2">Simpan</button>
+    ${d ? '<button class="btn ghost" id="dDel">Hapus catatan</button>' : ''}`);
+  const sh = $('#sheet');
+  bindAmt($('#dAmt'), cur());
+  $('#dWal').onchange = () => {
+    const before = cur(); wid = $('#dWal').value;
+    $('#dCur').textContent = cur();
+    if (before !== cur()) { $('#dAmt').value = ''; $('#dAmt').inputMode = amtMode(cur()); bindAmt($('#dAmt'), cur()); }
+  };
+  sh.querySelectorAll('[data-dkind]').forEach(b => b.onclick = () => {
+    if (b.disabled) return;
+    kind = b.dataset.dkind;
+    sh.querySelectorAll('[data-dkind]').forEach(x => x.classList.toggle('on', x === b));
+    $('#dPersonLbl').textContent = tr(kind === 'lend' ? 'Siapa yang pinjam?' : 'Pinjam ke siapa?');
+    $('#dWalLbl').textContent = tr(kind === 'lend' ? 'Uangnya dari dompet' : 'Uangnya masuk ke dompet');
+    $('#dMoveT').textContent = tr(kind === 'lend' ? 'Kurangi saldo dompet sekarang' : 'Tambah saldo dompet sekarang');
+  });
+  $('#dMove').onclick = () => { move = !move; const sw = $('#dMove .sw'); sw.classList.toggle('on', move); sw.setAttribute('aria-checked', String(move)); };
+  sh.querySelectorAll('[data-due]').forEach(b => b.onclick = () => {
+    const k = b.dataset.due, base = $('#dDate').value || todayStr();
+    $('#dDue').value = !k ? '' : k[0] === 'm' ? addMonths(base, Number(k.slice(1))) : addDays(base, Number(k));
+  });
+  const doSave = () => {
+    const person = $('#dPerson').value.trim(); if (!person) { toast('Isi nama orangnya'); $('#dPerson').focus(); return; }
+    const c = cur(), amount = parseAmt($('#dAmt').value, c);
+    if (!(amount > 0)) { toast('Isi nominalnya'); return; }
+    if (d && amount < debtPaid(d) - 0.004) { toast('Nominal tidak boleh lebih kecil dari yang sudah dibayar'); return; }
+    const date = $('#dDate').value || todayStr(), due = $('#dDue').value || '';
+    if (due && due < date) { toast('Jatuh tempo tidak boleh sebelum tanggal pinjam'); return; }
+    const rec = { id: d ? d.id : 'd_' + uid(), kind, person, amount, cur: c, wallet: wid, date, due, note: $('#dNote').value.trim(), created: d ? d.created : Date.now() };
+    if (d) Object.assign(d, rec); else S.debts.push(rec);
+    const flow = kind === 'lend' ? 'out' : 'in';
+    if (move) {
+      if (openT) Object.assign(openT, { flow, amount, wallet: wid, date });
+      else S.tx.push({ id: 't_' + uid(), type: 'debt', debt: rec.id, role: 'open', flow, amount, wallet: wid, date, created: Date.now() });
+    } else if (openT) S.tx = S.tx.filter(t => t !== openT);
+    // pembayaran ikut arah yang benar kalau jenisnya berubah
+    debtTx(rec.id).filter(t => t.role === 'pay').forEach(t => { t.flow = kind === 'lend' ? 'in' : 'out'; });
+    save(); render();
+    if (d) openDebtDetail(rec.id); else { closeSheet(); toast(kind === 'lend' ? 'Piutang dicatat' : 'Utang dicatat'); }
+  };
+  $('#dSave').onclick = $('#dSave2').onclick = doSave;
+  if ($('#dDel')) $('#dDel').onclick = async () => {
+    const n = debtTx(d.id).length;
+    if (await ask(n ? 'Hapus catatan ini? Perubahan saldo dompet dari catatan ini (pinjaman & pembayaran) ikut dibatalkan.' : 'Hapus catatan ini?')) {
+      S.tx = S.tx.filter(t => !(t.type === 'debt' && t.debt === d.id));
+      S.debts = S.debts.filter(x => x.id !== d.id); save(); closeSheet(); render(); toast('Catatan dihapus');
+    }
+  };
+}
+function openDebtDetail(id) {
+  const d = S.debts.find(x => x.id === id); if (!d) { closeSheet(); return; }
+  const lend = d.kind === 'lend', left = debtLeft(d), paid = debtPaid(d), di = dueInfo(d), done = !debtOpen(d);
+  const pct = Math.min(100, Math.round(paid / d.amount * 100));
+  const list = sortTx(debtTx(d.id));
+  const moved = list.some(t => t.role === 'open');
+  const row = t => txRow(t).replace('data-edit=', t.role === 'open' ? 'data-dopen=' : 'data-dpay=');
+  openSheet(`<div class="shead"><button data-close>Tutup</button><h2>${esc(d.person)}</h2><button id="ddEdit">Ubah</button></div>
+    <div class="card ddcard">
+      <div class="ddtop">${avatar(d.person, 'big')}<div><div class="small muted"><span>${lend ? 'Piutang' : 'Utang'}</span><span> · </span><span>${esc(shortDate(d.date))}</span></div><div class="ddlbl">${done ? 'Lunas' : lend ? 'Belum dibayar ke kamu' : 'Belum kamu bayar'}</div></div></div>
+      <div class="ddbig num ${done ? '' : lend ? 'in' : 'danger'}">${done ? '✓ ' + fmtC(d.amount, d.cur) : fmtC(left, d.cur)}</div>
+      <div class="bar"><i style="width:${pct}%"></i></div>
+      <div class="kv" style="margin:8px 0 0"><span>Sudah dibayar ${fmtC(paid, d.cur)}</span><span>Total ${fmtC(d.amount, d.cur)}</span></div>
+      ${!done ? `<div class="dddue ${di ? di.cls : ''}">📅 <span>${di ? esc(shortDate(d.due)) : 'Tanpa jatuh tempo'}</span>${di ? `<span> · </span><span>${di.txt}</span>` : ''}</div>` : ''}
+      ${d.note ? `<div class="small muted" style="margin-top:8px">📝 ${esc(d.note)}</div>` : ''}
+    </div>
+    ${!done ? `<div class="two"><button class="btn" id="ddPay">${lend ? 'Terima bayaran' : 'Bayar utang'}</button><button class="btn sec" id="ddFull">✓ Lunas semua</button></div>` : ''}
+    <h3 class="sub">Riwayat</h3>
+    ${list.length ? `<div class="card" style="padding:4px 16px">${list.map(row).join('')}</div>` : ''}
+    ${!moved ? `<div class="hint" style="margin-top:6px">Pinjaman awal dicatat tanpa mengubah saldo dompet.</div>` : ''}
+    <div class="hint" style="margin-top:6px">${lend ? 'Pembayaran menambah saldo dompet tapi tidak dihitung sebagai pemasukan.' : 'Pembayaran mengurangi saldo dompet tapi tidak dihitung sebagai pengeluaran.'}</div>`);
+  $('#ddEdit').onclick = () => openDebt(id);
+  if ($('#ddPay')) $('#ddPay').onclick = () => openDebtPay(id);
+  if ($('#ddFull')) $('#ddFull').onclick = () => {
+    const w = debtWallets().find(x => x.id === d.wallet && x.currency === d.cur) || debtWallets().find(x => x.currency === d.cur);
+    if (!w) { toast('Tidak ada dompet ' + d.cur); return; }
+    addDebtPay(d, left, w.id, todayStr());
+  };
+  $('#sheet').querySelectorAll('[data-dopen]').forEach(b => b.onclick = () => openDebt(id));
+  $('#sheet').querySelectorAll('[data-dpay]').forEach(b => b.onclick = async () => {
+    if (await ask('Hapus pembayaran ini? Saldo dompet dikembalikan seperti sebelumnya.')) {
+      S.tx = S.tx.filter(t => t.id !== b.dataset.dpay); save(); render(); openDebtDetail(id); toast('Pembayaran dihapus');
+    }
+  });
+}
+function addDebtPay(d, amount, wallet, date) {
+  S.tx.push({ id: 't_' + uid(), type: 'debt', debt: d.id, role: 'pay', flow: d.kind === 'lend' ? 'in' : 'out', amount: roundC(amount, d.cur), wallet, date, created: Date.now() });
+  save(); render(); openDebtDetail(d.id);
+  toast(debtOpen(d) ? 'Pembayaran dicatat' : '✅ Lunas!');
+}
+function openDebtPay(id) {
+  const d = S.debts.find(x => x.id === id); if (!d) return;
+  const lend = d.kind === 'lend', left = debtLeft(d);
+  const wl = debtWallets().filter(w => w.currency === d.cur);
+  if (!wl.length) { toast('Tidak ada dompet ' + d.cur); return; }
+  const w0 = (wl.find(w => w.id === d.wallet) || wl[0]).id;
+  openSheet(`<div class="shead"><button id="dpBack">Batal</button><h2>${lend ? 'Terima bayaran' : 'Bayar utang'}</h2><button id="dpSave" style="font-weight:600">Simpan</button></div>
+    <div class="small muted" style="margin:-4px 4px 10px"><span>${esc(d.person)}</span><span> · </span><span>Sisa ${fmtC(left, d.cur)}</span></div>
+    <div class="field amount"><label>Nominal</label><div class="ar"><span class="rp">${d.cur}</span><input id="dpAmt" inputmode="${amtMode(d.cur)}" class="num" value="${fmtInput(left, d.cur)}"></div></div>
+    <div class="chips duechips"><button type="button" class="chip" data-dpq="1"><span>Lunas</span><span> · </span><span>${fmtC(left, d.cur)}</span></button><button type="button" class="chip" data-dpq="0.5">Setengah</button></div>
+    <div class="field"><label>${lend ? 'Masuk ke dompet' : 'Bayar dari dompet'}</label><select id="dpWal">${wl.map(w => `<option value="${w.id}" ${w.id === w0 ? 'selected' : ''}>${esc(w.icon)} ${esc(w.name)}</option>`).join('')}</select></div>
+    <div class="field"><label>Tanggal</label><input id="dpDate" type="date" value="${todayStr()}"></div>
+    <div class="hint">${lend ? 'Saldo dompet bertambah, tidak dihitung sebagai pemasukan.' : 'Saldo dompet berkurang, tidak dihitung sebagai pengeluaran.'}</div>
+    <button class="btn" id="dpSave2">Simpan</button>`);
+  bindAmt($('#dpAmt'), d.cur);
+  $('#dpBack').onclick = () => openDebtDetail(id);
+  $('#sheet').querySelectorAll('[data-dpq]').forEach(b => b.onclick = () => { $('#dpAmt').value = fmtInput(roundC(left * Number(b.dataset.dpq), d.cur), d.cur); });
+  $('#dpSave').onclick = $('#dpSave2').onclick = () => {
+    const a = parseAmt($('#dpAmt').value, d.cur);
+    if (!(a > 0)) { toast('Isi nominalnya'); return; }
+    if (a > left + 0.004) { toast('Lebih besar dari sisa ' + fmtC(left, d.cur)); return; }
+    addDebtPay(d, a, $('#dpWal').value, $('#dpDate').value || todayStr());
+  };
+}
+
+// ================================================================
+// GOALS (tabungan)
+// kind 'once'    : target sekali (mis. laptop 20jt), boleh pakai tenggat
+// kind 'monthly' : rutin per bulan (mis. nabung 1jt tiap bulan), target total opsional,
+//                  bisa otomatis tiap tanggal tertentu
+// mode 'wallet'   : rekening terpisah, progres = saldo dompet itu
+// mode 'envelope' : di dompet yang sudah ada, sebagian saldo "dikunci" (alokasi virtual)
+// ================================================================
+const GOAL_ICONS = ['🎯','🐷','✈️','🏝️','💻','📱','🏍️','🚗','🏠','💍','🎓','👶','🆘','🎮','📷','⌚️','🎸','🐶','🎁','💼','📈','🕌','⛪️','🏥','🛋️'];
+const isMonthly = g => g.kind === 'monthly';
+const goalCur = g => g.mode === 'wallet' ? curOf(g.wallet) : (g.cur || curOf(g.wallet));
+const goalSaved = g => g.mode === 'wallet' ? (g.wallet && S.wallets.some(w => w.id === g.wallet) ? Math.max(0, walletBalance(g.wallet)) : 0)
+  : roundC((g.alloc || []).reduce((a, x) => a + x.amount, 0), goalCur(g));
+const allocIn = wid => (S.goals || []).filter(g => g.mode === 'envelope' && g.wallet === wid).reduce((a, g) => a + goalSaved(g), 0);
+const daysInYM = ym => { const [y, m] = ym.split('-').map(Number); return new Date(y, m, 0).getDate(); };
+const ymShort = ym => { const [y, m] = ym.split('-').map(Number); return new Date(y, m - 1, 1).toLocaleDateString(LOC, { month: 'short' }); };
+// Berapa yang masuk ke goal dalam satu bulan (bersih: setor − ambil)
+function monthSaved(g, ym) {
+  const c = goalCur(g);
+  if (g.mode === 'wallet') {
+    if (!S.wallets.some(w => w.id === g.wallet)) return 0;
+    return roundC(walletBalanceAt(g.wallet, `${ym}-31`) - walletBalanceAt(g.wallet, `${ymShift(ym, -1)}-31`), c);
+  }
+  return roundC((g.alloc || []).filter(a => ymOf(a.date) === ym).reduce((s, a) => s + a.amount, 0), c);
+}
+// Berapa bulan berturut-turut target bulanan tercapai
+function goalStreak(g) {
+  if (!(g.monthly > 0)) return 0;
+  const start = ymOf(g.start || todayStr());
+  let ym = ymOf(todayStr()), n = 0;
+  if (monthSaved(g, ym) < g.monthly - 0.004) ym = ymShift(ym, -1);   // bulan ini belum selesai, tidak memutus streak
+  while (ym >= start && monthSaved(g, ym) >= g.monthly - 0.004) { n++; ym = ymShift(ym, -1); }
+  return n;
+}
+function goalStats(g) {
+  const cur = goalCur(g), saved = goalSaved(g), target = Number(g.target) || 0;
+  const left = Math.max(0, roundC(target - saved, cur));
+  const tpct = target > 0 ? Math.min(100, saved / target * 100) : 0;
+  if (isMonthly(g)) {
+    const ym = ymOf(todayStr()), ms = monthSaved(g, ym), mt = Number(g.monthly) || 0;
+    const mleft = Math.max(0, roundC(mt - ms, cur));
+    const r = { cur, saved, target, left, tpct, monthly: mt, mSaved: ms, mLeft: mleft, pct: mt > 0 ? Math.max(0, Math.min(100, ms / mt * 100)) : 0, streak: goalStreak(g), status: '' };
+    if (target > 0 && left <= 0.004) r.status = 'done';
+    else if (mt > 0 && mleft <= 0.004) r.status = 'mdone';
+    if (target > 0 && left > 0.004 && mt > 0) { r.months = Math.ceil(left / mt); r.eta = ymShift(ym, r.months - (r.status === 'mdone' ? 0 : 1)); }
+    return r;
+  }
+  const r = { cur, saved, target, left, pct: tpct, tpct, status: '', perMonth: 0, months: 0 };
+  if (left <= 0.004) { r.status = 'done'; return r; }
+  if (g.due) {
+    const dl = daysTo(g.due);
+    if (dl < 0) { r.status = 'late'; return r; }
+    r.months = Math.max(1, Math.ceil(dl / 30.44));
+    r.perMonth = roundC(left / r.months, cur);
+    const total = Math.max(1, (dayMs(g.due) - dayMs(g.start || todayStr())) / 864e5);
+    const el = Math.max(0, (dayMs(todayStr()) - dayMs(g.start || todayStr())) / 864e5);
+    r.status = saved >= target * Math.min(1, el / total) * 0.95 ? 'ok' : 'behind';
+  }
+  return r;
+}
+const GSTAT = { done: ['🎉 Tercapai', 'ok'], mdone: ['✓ Bulan ini', 'ok'], ok: ['On track', 'ok'], behind: ['Tertinggal', 'warn'], late: ['Lewat tenggat', 'over'] };
+const goalMode = g => g.mode === 'wallet' ? `🏦 <span>Rekening</span><span> · </span><span>${esc(walById(g.wallet).name)}</span>` : `✉️ <span>Disisihkan di</span><span> · </span><span>${esc(walById(g.wallet).name)}</span>`;
+function ring(pct, size = 64, stroke = 7) {
+  const r = (size - stroke) / 2, c = 2 * Math.PI * r;
+  return `<svg class="gring" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}"><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="var(--chip)" stroke-width="${stroke}"/><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="var(--accent)" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${c * pct / 100} ${c}" ${pct < 0.5 ? 'opacity="0"' : ''} transform="rotate(-90 ${size / 2} ${size / 2})"/></svg>`;
+}
+const autoLine = g => g.auto && g.auto.on ? `<span>🔁 Otomatis tiap tgl ${g.auto.day}</span>` : '';
+function goalCard(g) {
+  const s = goalStats(g), st = GSTAT[s.status];
+  if (isMonthly(g)) {
+    const bits = [];
+    if (s.streak > 0) bits.push(`<span>🔥 ${s.streak} bulan berturut-turut</span>`);
+    bits.push(`<span>Terkumpul ${fmtShortC(s.saved, s.cur)}</span>`);
+    if (g.auto && g.auto.on) bits.push(autoLine(g));
+    return `<button class="card gcard" data-goal="${g.id}">
+      <div class="gtop"><span class="gic">${esc(g.icon || '🐷')}</span><span class="gnm"><b>${esc(g.name)}</b><span class="small muted">${goalMode(g)}</span></span>${st ? `<span class="gpill ${st[1]}">${st[0]}</span>` : `<span class="gpill">🔁 Bulanan</span>`}</div>
+      <div class="bar"><i style="width:${s.pct}%"></i></div>
+      <div class="gnums num"><span><b>${fmtC(s.mSaved, s.cur)}</b><span class="muted"> / ${fmtC(s.monthly, s.cur)}</span> <span class="muted small">bulan ini</span></span><span class="muted">${Math.floor(s.pct)}%</span></div>
+      <div class="small muted gsub">${bits.join('<span> · </span>')}</div>
+      ${s.target > 0 ? `<div class="bar thin2"><i style="width:${s.tpct}%"></i></div><div class="small muted gsub"><span>Target total ${fmtShortC(s.target, s.cur)}</span><span> · </span><span>${Math.floor(s.tpct)}%</span>${s.eta ? `<span> · </span><span>±${esc(monthLabel(s.eta))}</span>` : ''}</div>` : ''}
+    </button>`;
+  }
+  return `<button class="card gcard" data-goal="${g.id}">
+    <div class="gtop"><span class="gic">${esc(g.icon || '🎯')}</span><span class="gnm"><b>${esc(g.name)}</b><span class="small muted">${goalMode(g)}</span></span>${st ? `<span class="gpill ${st[1]}">${st[0]}</span>` : ''}</div>
+    <div class="bar"><i class="${s.status === 'behind' ? 'warn' : s.status === 'late' ? 'over' : ''}" style="width:${s.pct}%"></i></div>
+    <div class="gnums num"><span><b>${fmtC(s.saved, s.cur)}</b><span class="muted"> / ${fmtC(s.target, s.cur)}</span></span><span class="muted">${Math.floor(s.pct)}%</span></div>
+    ${s.status !== 'done' ? `<div class="small muted gsub">${g.due ? `<span>📅 ${esc(shortDate(g.due))}</span>${s.perMonth ? `<span> · </span><span>Perlu ${fmtShortC(s.perMonth, s.cur)}/bulan</span>` : ''}` : `<span>Tanpa tenggat</span><span> · </span><span>Kurang ${fmtShortC(s.left, s.cur)}</span>`}</div>` : ''}
+  </button>`;
+}
+function viewGoals() {
+  const rank = g => { const st = goalStats(g).status; return st === 'done' ? 2 : 0; };
+  const gs = S.goals.slice().sort((a, b) => rank(a) - rank(b) || (isMonthly(b) - isMonthly(a)) || (a.due || '9').localeCompare(b.due || '9'));
+  let h = '';
+  if (gs.length) {
+    const sv = {}, tg = {}, mo = {}, moDone = {};
+    gs.forEach(g => {
+      const s = goalStats(g); bagAdd(sv, s.cur, s.saved);
+      if (s.target > 0) bagAdd(tg, s.cur, s.target);
+      if (isMonthly(g)) { bagAdd(mo, s.cur, s.monthly); bagAdd(moDone, s.cur, Math.min(s.monthly, Math.max(0, s.mSaved))); }
+    });
+    const km = bagKeys(mo)[0], kt = bagKeys(tg)[0];
+    const pct = km ? Math.min(100, (moDone[km] || 0) / mo[km] * 100) : kt ? Math.min(100, (sv[kt] || 0) / tg[kt] * 100) : 0;
+    h += `<div class="card gsum">${ring(pct, 72, 8)}<div><span class="small muted">Terkumpul</span><b class="num">${fmtBag(sv, { all: true, sep: '<br>' })}</b>
+      ${km ? `<span class="small muted"><span>Rutin</span> <span class="num">${fmtBag(mo, { sep: ' · ' })}</span><span>/bulan</span></span>` : ''}
+      ${kt ? `<span class="small muted"><span>Target</span> <span class="num">${fmtBag(tg, { sep: ' · ' })}</span></span>` : ''}</div>
+      <span class="gsumn"><b>${gs.length}</b><span class="small muted">goals</span></span></div>`;
+    h += gs.map(goalCard).join('');
+  } else {
+    h += `<div class="card"><div class="empty" style="padding:18px 6px"><div class="e">🎯</div>Belum ada goal.<br><span class="small">Pasang target sekali (liburan, laptop) atau nabung rutin tiap bulan (dana darurat, investasi). Dompetku yang menghitung progresnya.</span></div></div>`;
+  }
+  h += `<button class="btn sec" data-gnew="1" style="margin-bottom:12px">＋ Goal baru</button>`;
+  return h;
+}
+// Bulan pertama tabungan otomatis: bulan ini kalau tanggalnya belum lewat, kalau sudah lewat mulai bulan depan
+const autoSince = day => { const t = todayStr(); return Number(t.slice(8, 10)) <= day ? ymOf(t) : ymShift(ymOf(t), 1); };
+function openGoal(id, kind0) {
+  const g = id && id !== 'new' ? S.goals.find(x => x.id === id) : null;
+  const wl = S.wallets.filter(w => !isCC(w));
+  if (!wl.length && !g) { toast('Buat dompet/rekening biasa dulu'); }
+  let kind = g ? (g.kind || 'once') : (kind0 || 'once');
+  let mode = g ? g.mode : 'envelope', icon = g ? g.icon : (kind === 'monthly' ? '🐷' : '🎯');
+  let autoOn = g && g.auto ? !!g.auto.on : false;
+  const usedW = new Set(S.goals.filter(x => x.mode === 'wallet' && x !== g).map(x => x.wallet));
+  let wid = g ? g.wallet : '';
+  const optsFor = m => {
+    const list = wl.filter(w => m === 'envelope' || !usedW.has(w.id));
+    if (!wid || !list.some(w => w.id === wid)) wid = m === 'wallet' && !g ? '__new' : (list[0] || {}).id || '__new';
+    return list.map(w => `<option value="${w.id}" ${w.id === wid ? 'selected' : ''}>${esc(w.icon)} ${esc(w.name)}${w.currency !== mainCur() ? ' · ' + w.currency : ''}</option>`).join('')
+      + (m === 'wallet' ? `<option value="__new" ${wid === '__new' ? 'selected' : ''}>➕ Buat rekening tabungan baru</option>` : '');
+  };
+  const c0 = g ? goalCur(g) : '';
+  openSheet(`
+    <div class="shead"><button data-close>Batal</button><h2>${g ? 'Ubah goal' : 'Goal baru'}</h2><button id="gSave" style="font-weight:600">Simpan</button></div>
+    <div class="seg gkindseg" style="grid-template-columns:1fr 1fr">${[['once', '🎯 Target sekali'], ['monthly', '🔁 Rutin per bulan']].map(([k, l]) => `<button data-gkind="${k}" class="${kind === k ? 'on' : ''}">${l}</button>`).join('')}</div>
+    <div class="two" style="grid-template-columns:80px 1fr">
+      <button type="button" class="field iconpick" id="gIconBtn"><label>Ikon</label><span class="iv" id="gIconVal">${esc(icon)}</span><span class="caret">▾</span></button>
+      <div class="field"><label>Nama goal</label><input id="gName" value="${esc(g ? g.name : '')}" placeholder="mis. Trip Jepang, Dana darurat"></div>
+    </div>
+    <div class="icongrid" id="gIconGrid" hidden>${GOAL_ICONS.map(i => `<button type="button" class="ig ${i === icon ? 'on' : ''}" data-gico="${i}">${i}</button>`).join('')}</div>
+    <div class="flabel">Uangnya disimpan di mana?</div>
+    <div class="seg gmodeseg" style="grid-template-columns:1fr 1fr">${[['envelope', 'Di dompet yang ada'], ['wallet', 'Rekening terpisah']].map(([k, l]) => `<button data-gmode="${k}" class="${mode === k ? 'on' : ''}" ${g && k !== mode ? 'disabled' : ''}>${l}</button>`).join('')}</div>
+    <div class="hint" id="gModeHint"></div>
+    <div class="field"><label id="gWalLbl"></label><select id="gWal">${optsFor(mode)}</select></div>
+    <div class="field" id="gCurBox" style="display:none"><label>Mata uang rekening baru</label><select id="gCur">${Object.entries(CURRENCIES).map(([c, n]) => `<option value="${c}" ${c === mainCur() ? 'selected' : ''}>${c} · ${esc(n)}</option>`).join('')}</select></div>
+    <div class="field amount" id="gMonBox"><label>Nabung per bulan</label><div class="ar"><span class="rp gcl"></span><input id="gMonthly" class="num" placeholder="0" value="${g && g.monthly ? fmtInput(g.monthly, c0) : ''}"></div></div>
+    <div class="chips duechips" id="gMonChips"></div>
+    <div class="field amount"><label id="gTargetLbl">Target</label><div class="ar"><span class="rp gcl"></span><input id="gTarget" class="num" placeholder="0" value="${g && g.target ? fmtInput(g.target, c0) : ''}"></div></div>
+    <div id="gDueBox">
+      <div class="field"><label>Tenggat (opsional)</label><input id="gDue" type="date" value="${g ? g.due || '' : ''}"></div>
+      <div class="chips duechips">${[['m3', '3 bulan'], ['m6', '6 bulan'], ['m12', '1 tahun'], ['m24', '2 tahun'], ['', 'Tanpa']].map(([k, l]) => `<button type="button" class="chip" data-gdue="${k}">${l}</button>`).join('')}</div>
+    </div>
+    <div id="gAutoBox">
+      <button type="button" class="row swrow" id="gAuto"><span class="tx1"><b id="gAutoT"></b><br><span class="small muted" id="gAutoH"></span></span><span class="sw ${autoOn ? 'on' : ''}" role="switch" aria-checked="${autoOn}"></span></button>
+      <div class="two" id="gAutoOpts">
+        <div class="field"><label>Tiap tanggal</label><select id="gAutoDay">${Array.from({ length: 28 }, (_, i) => i + 1).map(d => `<option value="${d}" ${(g && g.auto ? g.auto.day : 25) === d ? 'selected' : ''}>${d}</option>`).join('')}</select></div>
+        <div class="field" id="gAutoSrcBox"><label>Dari dompet</label><select id="gAutoSrc"></select></div>
+      </div>
+    </div>
+    <div class="gplan" id="gPlan"></div>
+    <button class="btn" id="gSave2">Simpan</button>
+    ${g ? '<button class="btn ghost" id="gDel">Hapus goal</button>' : ''}`);
+  const sh = $('#sheet');
+  const curNow = () => wid === '__new' ? $('#gCur').value : curOf(wid);
+  const srcOpts = () => {
+    const c = curNow(), keep = (g && g.auto && g.auto.src) || $('#gAutoSrc').value;
+    const list = wl.filter(w => w.id !== wid && w.currency === c);
+    const best = list.find(w => w.id === keep) || list.slice().sort((a, b) => walletBalance(b.id) - walletBalance(a.id))[0];
+    return list.length ? list.map(w => `<option value="${w.id}" ${best && w.id === best.id ? 'selected' : ''}>${esc(w.icon)} ${esc(w.name)}</option>`).join('') : `<option value="">${esc(tr('Tidak ada dompet ' + c))}</option>`;
+  };
+  const refresh = () => {
+    const mon = kind === 'monthly';
+    $('#gModeHint').innerHTML = mode === 'wallet'
+      ? (LANG === 'en' ? 'Progress = this account’s balance. Save by making a <b>Transfer</b> into it.' : 'Progres = saldo rekening ini. Nabung dengan <b>Transfer</b> ke rekening ini.')
+      : (LANG === 'en' ? 'The money stays in this wallet, but part of it is set aside for the goal. The wallet balance doesn’t change; what you can spend = balance − goal money.' : 'Uangnya tetap di dompet ini, tapi sebagian disisihkan untuk goal. Saldo dompet tidak berubah; yang bisa dipakai = saldo − dana goal.');
+    $('#gWalLbl').textContent = mode === 'wallet' ? 'Rekening tabungan' : 'Disisihkan dari dompet';
+    $('#gCurBox').style.display = wid === '__new' ? '' : 'none';
+    sh.querySelectorAll('.gcl').forEach(x => x.textContent = curNow());
+    $('#gMonBox').style.display = mon ? '' : 'none';
+    $('#gMonChips').style.display = mon ? '' : 'none';
+    $('#gDueBox').style.display = mon ? 'none' : '';
+    $('#gAutoBox').style.display = mon ? '' : 'none';
+    $('#gTargetLbl').textContent = mon ? 'Target total (opsional)' : 'Target';
+    $('#gAutoT').textContent = mode === 'wallet' ? 'Transfer otomatis tiap bulan' : 'Sisihkan otomatis tiap bulan';
+    $('#gAutoH').textContent = mode === 'wallet' ? 'Dompetku mencatat transfer ke rekening tabungan di tanggal yang kamu pilih.' : 'Di tanggal yang kamu pilih, nominal bulanan otomatis disisihkan dari dompet ini.';
+    $('#gAutoOpts').style.display = autoOn ? '' : 'none';
+    $('#gAutoSrcBox').style.display = mode === 'wallet' ? '' : 'none';
+    if (mode === 'wallet') $('#gAutoSrc').innerHTML = srcOpts();
+    const c = curNow();
+    $('#gMonChips').innerHTML = (c === 'IDR' ? [500000, 1000000, 2000000, 5000000] : [100, 250, 500, 1000]).map(v => `<button type="button" class="chip" data-gmon="${v}">${fmtShortC(v, c)}</button>`).join('');
+    sh.querySelectorAll('[data-gmon]').forEach(b => b.onclick = () => { $('#gMonthly').value = fmtInput(Number(b.dataset.gmon), c); plan(); });
+    ['#gTarget', '#gMonthly'].forEach(sel => { $(sel).inputMode = amtMode(c); bindAmt($(sel), c, plan); });
+    plan(); trDOM(sh);
+  };
+  const plan = () => {
+    const c = curNow(), t = parseAmt($('#gTarget').value, c);
+    const saved = g && goalCur(g) === c ? goalSaved(g) : (mode === 'wallet' && wid !== '__new' ? Math.max(0, walletBalance(wid)) : 0);
+    let html = '';
+    if (kind === 'monthly') {
+      const m = parseAmt($('#gMonthly').value, c);
+      if (m > 0) {
+        html = `💡 <span>Setahun jadi</span> <b class="num">${fmtC(roundC(m * 12, c), c)}</b>`;
+        if (t > saved && t > 0) { const n = Math.ceil((t - saved) / m); html += `<br>🏁 <span>Target total tercapai</span> <span>±${esc(monthLabel(ymShift(ymOf(todayStr()), n - 1)))}</span><span> · </span><span>${n} bulan lagi</span>`; }
+        if (autoOn) html += `<br>🔁 <span>Mulai</span> <span>${esc(shortDate(`${autoSince(Number($('#gAutoDay').value))}-${pad(Number($('#gAutoDay').value))}`))}</span>`;
+      }
+    } else {
+      const due = $('#gDue').value;
+      if (t > 0 && due && daysTo(due) > 0) {
+        const months = Math.max(1, Math.ceil(daysTo(due) / 30.44)), per = Math.max(0, (t - saved) / months);
+        html = `💡 <span>Perlu nabung</span> <b class="num">${fmtC(roundC(per, c), c)}</b> <span>per bulan</span><span> · </span><span>${months} bulan lagi</span>`;
+      } else if (t > 0 && saved > 0) html = `💡 <span>Sudah ada</span> <b class="num">${fmtC(saved, c)}</b>`;
+    }
+    $('#gPlan').innerHTML = html; trDOM($('#gPlan'));
+  };
+  $('#gIconBtn').onclick = () => { const gr = $('#gIconGrid'); gr.hidden = !gr.hidden; $('#gIconBtn').classList.toggle('open', !gr.hidden); };
+  sh.querySelectorAll('[data-gico]').forEach(b => b.onclick = () => { icon = b.dataset.gico; $('#gIconVal').textContent = icon; sh.querySelectorAll('[data-gico]').forEach(x => x.classList.toggle('on', x === b)); $('#gIconGrid').hidden = true; $('#gIconBtn').classList.remove('open'); });
+  sh.querySelectorAll('[data-gkind]').forEach(b => b.onclick = () => {
+    kind = b.dataset.gkind; sh.querySelectorAll('[data-gkind]').forEach(x => x.classList.toggle('on', x === b));
+    if (!g && (icon === '🎯' || icon === '🐷')) { icon = kind === 'monthly' ? '🐷' : '🎯'; $('#gIconVal').textContent = icon; }
+    refresh();
+  });
+  sh.querySelectorAll('[data-gmode]').forEach(b => b.onclick = () => {
+    if (b.disabled) return;
+    mode = b.dataset.gmode; sh.querySelectorAll('[data-gmode]').forEach(x => x.classList.toggle('on', x === b));
+    wid = ''; $('#gWal').innerHTML = optsFor(mode); refresh();
+  });
+  $('#gWal').onchange = () => { const c1 = curNow(); wid = $('#gWal').value; if (curNow() !== c1) { $('#gTarget').value = ''; $('#gMonthly').value = ''; } refresh(); };
+  $('#gCur').onchange = () => { $('#gTarget').value = ''; $('#gMonthly').value = ''; refresh(); };
+  $('#gDue').onchange = plan;
+  $('#gAutoDay').onchange = plan;
+  $('#gAuto').onclick = () => { autoOn = !autoOn; const sw = $('#gAuto .sw'); sw.classList.toggle('on', autoOn); sw.setAttribute('aria-checked', String(autoOn)); refresh(); };
+  sh.querySelectorAll('[data-gdue]').forEach(b => b.onclick = () => { const k = b.dataset.gdue; $('#gDue').value = k ? addMonths(todayStr(), Number(k.slice(1))) : ''; plan(); });
+  refresh();
+  const doSave = () => {
+    const name = $('#gName').value.trim(); if (!name) { toast('Isi nama goal'); $('#gName').focus(); return; }
+    const c = curNow(), target = parseAmt($('#gTarget').value, c), monthly = kind === 'monthly' ? parseAmt($('#gMonthly').value, c) : 0;
+    if (kind === 'monthly' && !(monthly > 0)) { toast('Isi nominal per bulan'); return; }
+    if (kind === 'once' && !(target > 0)) { toast('Isi targetnya'); return; }
+    const day = Number($('#gAutoDay').value) || 25, src = $('#gAutoSrc').value;
+    if (kind === 'monthly' && autoOn && mode === 'wallet' && !src) { toast('Pilih dompet sumber transfer otomatis'); return; }
+    let w = wid;
+    if (w === '__new') {
+      w = 'w_' + uid();
+      S.wallets.push({ id: w, name: 'Tabungan ' + name, icon: icon || '🐷', initial: 0, currency: c, kind: 'cash', limit: 0 });
+    }
+    if (!w) { toast('Pilih dompet'); return; }
+    const prevAuto = g && g.auto;
+    const auto = kind === 'monthly' && autoOn ? { on: true, day, src: mode === 'wallet' ? src : '', since: prevAuto && prevAuto.on && prevAuto.day === day ? prevAuto.since : autoSince(day) } : null;
+    const rec = { id: g ? g.id : 'g_' + uid(), kind, name, icon, target: target > 0 ? target : 0, monthly, mode, wallet: w, cur: curOf(w), due: kind === 'once' ? $('#gDue').value || '' : '',
+      start: g ? g.start : todayStr(), alloc: g ? g.alloc || [] : [], auto, autoDone: g ? g.autoDone || [] : [], created: g ? g.created : Date.now() };
+    if (g) Object.assign(g, rec); else S.goals.push(rec);
+    // jangan rayakan saldo yang sudah ada
+    const st = goalStats(rec); rec.ms = [25, 50, 75, 100].filter(x => (st.tpct || 0) >= x).pop() || 0;
+    if (st.status === 'mdone') rec.mdone = ymOf(todayStr());
+    const n = runGoalAuto();
+    save(); render(); openGoalDetail(rec.id);
+    toast(n ? `🔁 Nabung otomatis dicatat (${n}×)` : g ? 'Goal disimpan' : '🎯 Goal dibuat');
+  };
+  $('#gSave').onclick = $('#gSave2').onclick = doSave;
+  if ($('#gDel')) $('#gDel').onclick = async () => {
+    if (await ask(g.mode === 'wallet' ? 'Hapus goal ini? Rekening tabungannya tetap ada.' : 'Hapus goal ini? Dana yang disisihkan kembali bebas dipakai.')) {
+      S.goals = S.goals.filter(x => x.id !== g.id); save(); closeSheet(); render(); toast('Goal dihapus');
+    }
+  };
+}
+// Grafik 6 bulan terakhir untuk goal rutin
+function monthBars(g) {
+  const now = ymOf(todayStr()), start = ymOf(g.start || todayStr()), c = goalCur(g);
+  const months = []; for (let i = 5; i >= 0; i--) { const ym = ymShift(now, -i); if (ym >= start) months.push(ym); }
+  if (months.length < 2) return '';
+  const vals = months.map(ym => Math.max(0, monthSaved(g, ym)));
+  const max = Math.max(g.monthly, ...vals) || 1;
+  const line = g.monthly / max * 100;
+  return `<div class="mbars">${months.map((ym, i) => { const v = vals[i], ok = v >= g.monthly - 0.004;
+    return `<div class="mb"><span class="mbv num">${v > 0 ? compactAmt(v) : ''}</span><div class="mbt"><i class="${ok ? 'ok' : ''}" style="height:${Math.max(v > 0 ? 3 : 0, v / max * 100)}%"></i><em style="bottom:${line}%"></em></div><span class="mbl">${ok ? '✓' : ''}${esc(ymShort(ym))}</span></div>`; }).join('')}</div>
+    <div class="small muted" style="margin-top:6px"><span class="mbkey"></span><span>Garis = target ${fmtShortC(g.monthly, c)}/bulan</span></div>`;
+}
+function openGoalDetail(id) {
+  const g = S.goals.find(x => x.id === id); if (!g) { closeSheet(); return; }
+  const s = goalStats(g), st = GSTAT[s.status], c = s.cur, mon = isMonthly(g);
+  const hist = g.mode === 'wallet'
+    ? sortTx(S.tx.filter(t => t.wallet === g.wallet || t.toWallet === g.wallet)).slice(0, 12).map(txRow).join('')
+    : (g.alloc || []).slice().sort((a, b) => b.date.localeCompare(a.date) || (b.created || 0) - (a.created || 0)).slice(0, 24).map(a => `<button class="tx" data-galloc="${a.id}"><div class="ti">${a.auto ? '🔁' : a.amount >= 0 ? '⬆️' : '⬇️'}</div><div class="tm"><b>${a.amount >= 0 ? (a.auto ? 'Disisihkan otomatis' : 'Disisihkan') : 'Diambil'}</b><span>${esc(dayLabel(a.date))}</span></div><div class="ta num ${a.amount >= 0 ? 'in' : ''}">${a.amount >= 0 ? '+' : '−'}${fmtC(Math.abs(a.amount), c)}</div></button>`).join('');
+  const free = g.mode === 'envelope' ? walletBalance(g.wallet) - allocIn(g.wallet) : 0;
+  const top = mon ? `
+      <div class="gdring">${ring(s.pct, 132, 12)}<div class="gdpct"><b class="num">${Math.floor(s.pct)}%</b>${st ? `<span class="gpill ${st[1]}">${st[0]}</span>` : `<span class="gpill">Bulan ini</span>`}</div></div>
+      <div class="gdnums num"><b>${fmtC(s.mSaved, c)}</b><span class="muted"><span>dari</span> ${fmtC(s.monthly, c)} <span>bulan ini</span></span></div>
+      <div class="fgrid num" style="margin-top:12px">
+        <div><span>Kurang bulan ini</span><b>${fmtC(s.mLeft, c)}</b></div>
+        <div><span>Berturut-turut</span><b>${s.streak ? '🔥 ' : ''}${s.streak} bulan</b></div>
+        <div><span>Total terkumpul</span><b>${fmtC(s.saved, c)}</b></div>
+        <div><span>Target total</span><b>${s.target > 0 ? fmtShortC(s.target, c) + ' · ' + Math.floor(s.tpct) + '%' : '—'}</b></div>
+      </div>
+      ${monthBars(g)}
+      <div class="small muted" style="margin-top:12px">${g.auto && g.auto.on ? `🔁 <span>Otomatis tiap tanggal ${g.auto.day}</span>${g.mode === 'wallet' ? `<span> · </span><span>dari ${esc(walById(g.auto.src).name)}</span>` : ''}` : `<button class="link" id="gdAuto">🔁 Atur nabung otomatis</button>`}</div>`
+    : `
+      <div class="gdring">${ring(s.pct, 132, 12)}<div class="gdpct"><b class="num">${Math.floor(s.pct)}%</b>${st ? `<span class="gpill ${st[1]}">${st[0]}</span>` : ''}</div></div>
+      <div class="gdnums num"><b>${fmtC(s.saved, c)}</b><span class="muted"><span>dari</span> ${fmtC(s.target, c)}</span></div>
+      <div class="fgrid num" style="margin-top:12px">
+        <div><span>Kurang</span><b>${fmtC(s.left, c)}</b></div>
+        <div><span>Tenggat</span><b>${g.due ? esc(shortDate(g.due)) : '—'}</b></div>
+        ${s.perMonth ? `<div><span>Perlu per bulan</span><b>${fmtC(s.perMonth, c)}</b></div><div><span>Sisa waktu</span><b>${s.months} bulan</b></div>` : ''}
+      </div>`;
+  openSheet(`<div class="shead"><button data-close>Tutup</button><h2>${esc(g.icon || '🎯')} ${esc(g.name)}</h2><button id="gdEdit">Ubah</button></div>
+    <div class="card gdcard">${top}
+      <div class="small muted" style="margin-top:12px">${goalMode(g)}</div>
+      ${g.mode === 'envelope' ? `<div class="kv" style="margin:8px 0 0"><span>Bisa dipakai di ${esc(walById(g.wallet).name)}</span><span class="num">${fmtC(free, c)}</span></div>` : ''}
+    </div>
+    <div class="two"><button class="btn" id="gdIn">＋ Nabung</button><button class="btn sec" id="gdOut">Ambil</button></div>
+    ${s.status === 'done' ? `<div class="gdone">🎉 <span>Selamat, goal ini sudah tercapai!</span></div>` : s.status === 'mdone' ? `<div class="gdone">🔥 <span>Target bulan ini sudah tercapai!</span></div>` : ''}
+    <h3 class="sub">${g.mode === 'wallet' ? 'Riwayat rekening' : 'Riwayat'}</h3>
+    ${hist ? `<div class="card" style="padding:4px 16px">${hist}</div>` : `<div class="empty" style="padding:14px">Belum ada setoran.</div>`}
+    ${g.mode === 'wallet' && !(g.auto && g.auto.on) ? `<div class="hint" style="margin-top:6px">${LANG === 'en' ? 'Saving = a Transfer into this account.' : 'Nabung = Transfer ke rekening ini.'}</div>` : ''}`);
+  $('#gdEdit').onclick = () => openGoal(id);
+  if ($('#gdAuto')) $('#gdAuto').onclick = () => openGoal(id);
+  $('#gdIn').onclick = () => g.mode === 'wallet' ? goalTransfer(g, 1) : openGoalMove(id, 1);
+  $('#gdOut').onclick = () => g.mode === 'wallet' ? goalTransfer(g, -1) : openGoalMove(id, -1);
+  $('#sheet').querySelectorAll('[data-galloc]').forEach(b => b.onclick = async () => {
+    if (await ask('Hapus catatan ini?')) { g.alloc = g.alloc.filter(a => a.id !== b.dataset.galloc); save(); render(); openGoalDetail(id); }
+  });
+}
+// Rekening terpisah: pakai form Transfer yang sudah ada
+function goalTransfer(g, dir) {
+  const gw = walById(g.wallet);
+  const pool = S.wallets.filter(w => !isCC(w) && w.id !== g.wallet);
+  const other = (dir > 0 && g.auto && pool.find(w => w.id === g.auto.src)) || pool.filter(w => w.currency === gw.currency).sort((a, b) => walletBalance(b.id) - walletBalance(a.id))[0] || pool[0];
+  if (!other) { toast('Butuh dompet lain sebagai sumber/tujuan'); return; }
+  const s = goalStats(g);
+  const amt = dir > 0 && isMonthly(g) && s.mLeft > 0 && other.currency === gw.currency ? s.mLeft : 0;
+  D = dir > 0
+    ? { type: 'transfer', amount: amt, wallet: other.id, toWallet: g.wallet, date: todayStr(), note: 'Nabung ' + g.name }
+    : { type: 'transfer', amount: 0, wallet: g.wallet, toWallet: other.id, date: todayStr(), note: 'Ambil dari ' + g.name };
+  renderTxSheet();
+}
+// Di dompet yang ada: sisihkan / ambil (tidak mengubah saldo dompet)
+function openGoalMove(id, dir) {
+  const g = S.goals.find(x => x.id === id); if (!g) return;
+  const c = goalCur(g), saved = goalSaved(g), free = walletBalance(g.wallet) - allocIn(g.wallet);
+  const s = goalStats(g);
+  const left = isMonthly(g) ? s.left : Math.max(0, g.target - saved);
+  const max = dir > 0 ? Math.max(0, free) : saved;
+  const quick = (dir > 0
+    ? (isMonthly(g) ? [['Sisa bulan ini', s.mLeft], ['Sebulan', s.monthly], ['Semua yang bisa', max]] : [['Penuhi target', left], ['¼ sisa', roundC(left / 4, c)], ['Semua yang bisa', max]])
+    : [['Semua', saved], ['Setengah', roundC(saved / 2, c)]])
+    .filter(([, v], i, a) => v > 0 && v <= max + 0.004 && a.findIndex(x => Math.abs(x[1] - v) < 0.01) === i);
+  openSheet(`<div class="shead"><button id="gmBack">Batal</button><h2>${dir > 0 ? 'Sisihkan untuk goal' : 'Ambil dari goal'}</h2><button id="gmSave" style="font-weight:600">Simpan</button></div>
+    <div class="small muted" style="margin:-4px 4px 10px"><span>${esc(g.icon || '🎯')} ${esc(g.name)}</span><span> · </span><span>${dir > 0 ? 'Bisa dipakai di ' + esc(walById(g.wallet).name) + ' ' + fmtC(free, c) : 'Terkumpul ' + fmtC(saved, c)}</span></div>
+    <div class="field amount"><label>Nominal</label><div class="ar"><span class="rp">${c}</span><input id="gmAmt" inputmode="${amtMode(c)}" class="num" placeholder="0"></div></div>
+    ${quick.length ? `<div class="chips duechips">${quick.map(([l, v]) => `<button type="button" class="chip" data-gmq="${v}"><span>${l}</span><span> · </span><span>${fmtShortC(v, c)}</span></button>`).join('')}</div>` : ''}
+    <div class="field"><label>Tanggal</label><input id="gmDate" type="date" value="${todayStr()}"></div>
+    <div class="hint">${dir > 0 ? 'Saldo dompet tidak berubah. Dana ini cuma ditandai untuk goal supaya tidak terpakai.' : 'Dana kembali bebas dipakai. Kalau uangnya dibelanjakan, catat pengeluarannya seperti biasa.'}</div>
+    <button class="btn" id="gmSave2">Simpan</button>`);
+  bindAmt($('#gmAmt'), c);
+  $('#gmBack').onclick = () => openGoalDetail(id);
+  $('#sheet').querySelectorAll('[data-gmq]').forEach(b => b.onclick = () => { $('#gmAmt').value = fmtInput(roundC(Number(b.dataset.gmq), c), c); });
+  $('#gmSave').onclick = $('#gmSave2').onclick = () => {
+    const a = parseAmt($('#gmAmt').value, c);
+    if (!(a > 0)) { toast('Isi nominalnya'); return; }
+    if (a > max + 0.004) { toast(dir > 0 ? 'Saldo yang bisa dipakai cuma ' + fmtC(max, c) : 'Terkumpul cuma ' + fmtC(max, c)); return; }
+    g.alloc = g.alloc || [];
+    g.alloc.push({ id: 'a_' + uid(), amount: roundC(dir * a, c), date: $('#gmDate').value || todayStr(), created: Date.now() });
+    save(); render(); openGoalDetail(id);
+    toast(dir > 0 ? 'Disisihkan untuk ' + g.name : 'Diambil dari ' + g.name);
+  };
+}
+// Nabung otomatis untuk goal rutin: dijalankan saat app dibuka (seperti transaksi berulang)
+function runGoalAuto() {
+  let n = 0;
+  const today = todayStr(), now = ymOf(today);
+  for (const g of S.goals || []) {
+    if (!isMonthly(g) || !g.auto || !g.auto.on || !(g.monthly > 0)) continue;
+    g.autoDone = g.autoDone || [];
+    for (let ym = g.auto.since || now, k = 0; ym <= now && k < 120; ym = ymShift(ym, 1), k++) {
+      if (g.autoDone.includes(ym)) continue;
+      const ds = `${ym}-${pad(Math.min(g.auto.day, daysInYM(ym)))}`;
+      if (ds > today) break;
+      if (g.mode === 'envelope') {
+        if (S.wallets.some(w => w.id === g.wallet)) {
+          const free = walletBalance(g.wallet) - allocIn(g.wallet), a = roundC(Math.min(g.monthly, Math.max(0, free)), goalCur(g));
+          if (a > 0) { (g.alloc = g.alloc || []).push({ id: 'a_' + uid(), amount: a, date: ds, created: Date.now(), auto: true }); n++; }
+        }
+      } else {
+        const src = S.wallets.find(w => w.id === g.auto.src), dst = S.wallets.find(w => w.id === g.wallet);
+        if (src && dst && src.currency === dst.currency) {
+          S.tx.push({ id: 't_' + uid(), type: 'transfer', amount: g.monthly, wallet: src.id, toWallet: dst.id, date: ds, note: 'Nabung ' + g.name, created: Date.now(), src: 'goal' });
+          n++;
+        }
+      }
+      g.autoDone.push(ym);
+    }
+  }
+  if (n) save();
+  return n;
+}
+// Rayakan 25/50/75/100% (target total) dan target bulanan tercapai
+function goalMilestones() {
+  let msg = null, dirty = false;
+  const ym = ymOf(todayStr());
+  for (const g of S.goals || []) {
+    const s = goalStats(g), p = s.tpct || 0, m = [25, 50, 75, 100].filter(x => p >= x).pop() || 0;
+    if (s.target > 0 && m > (g.ms || 0)) { g.ms = m; dirty = true; msg = m === 100 ? `🎉 ${g.name} tercapai!` : `🎯 ${g.name} sudah ${m}%`; }
+    else if (m < (g.ms || 0)) { g.ms = m; dirty = true; }
+    if (isMonthly(g) && s.status === 'mdone' && g.mdone !== ym) { g.mdone = ym; dirty = true; msg = msg || `🔥 Target bulan ini tercapai: ${g.name}`; }
+  }
+  if (dirty) save();
+  if (msg) setTimeout(() => toast(msg), 350);
+}
+
 // ---------- Events ----------
 document.addEventListener('click', async e => {
   const t = e.target.closest('button,a'); if (!t) return;
   if (t.matches('[data-close]')) { closeSheet(); return; }
   if (t.dataset.tab) { tab = t.dataset.tab; render(); window.scrollTo(0, 0); return; }
   if (t.dataset.goto) { e.preventDefault(); tab = t.dataset.goto; render(); window.scrollTo(0, 0); return; }
-  if (t.dataset.edit) { openTx(t.dataset.edit); return; }
+  if (t.dataset.edit) { const x = S.tx.find(y => y.id === t.dataset.edit); if (x && x.type === 'debt') { openDebtDetail(x.debt); return; } openTx(t.dataset.edit); return; }
   if (t.dataset.wallet && !t.closest('#sheet')) { openWallet(t.dataset.wallet); return; }
   if (t.dataset.cat && !t.closest('#sheet')) { openCat(t.dataset.cat); return; }
   if (t.dataset.budget) { openBudget(t.dataset.budget); return; }
   if (t.dataset.day) { openDaySheet(t.dataset.day); return; }
   if (t.dataset.catd) { openCatDetail(t.dataset.catd); return; }
   if (t.dataset.wdet) { openWalletDetail(t.dataset.wdet); return; }
+  if (t.dataset.wseg) { wSeg = t.dataset.wseg; render(); window.scrollTo(0, 0); return; }
+  if (t.dataset.debt) { openDebtDetail(t.dataset.debt); return; }
+  if (t.dataset.dnew) { openDebt('new', t.dataset.dnew); return; }
+  if (t.dataset.dgo) { e.preventDefault(); tab = 'wallet'; wSeg = 'debt'; render(); window.scrollTo(0, 0); return; }
+  if (t.dataset.goal) { openGoalDetail(t.dataset.goal); return; }
+  if (t.dataset.gnew) { openGoal('new'); return; }
   if (t.dataset.htype) { homeType = t.dataset.htype; render(); return; }
   if (t.dataset.vcur) { viewCur = t.dataset.vcur; render(); return; }
   if (t.dataset.bcur) { setBudgetCur(t.dataset.bcur); return; }
@@ -2549,12 +3471,13 @@ $('#mPrev').addEventListener('click', () => { viewYM = ymShift(viewYM, -1); rend
 $('#mNext').addEventListener('click', () => { viewYM = ymShift(viewYM, 1); render(); });
 
 runRecurring();
+{ const n = runGoalAuto(); if (n) setTimeout(() => toast(`🔁 ${n}× nabung otomatis dicatat`), 900); }
 render();
 
 // Tarik transaksi Back Tap saat aplikasi dibuka / kembali ke layar
 pullInbox(false);
 try { if (localStorage.getItem(spaceKey(getSpaces().active) + '.dirty') === '1') doBackup(false); } catch (e) {}
-document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') pullInbox(false); });
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { if (runGoalAuto()) render(); pullInbox(false); } });
 window.addEventListener('online', () => { lastPull = 0; pullInbox(false); });
 
 // ---------- Offline (service worker) ----------
@@ -2569,6 +3492,8 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
     navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(r => { try { r.update(); } catch (e) {} }).catch(() => {});
   });
 }
+// Pengait tes lokal (hanya saat dibuka sebagai file, tidak aktif di GitHub Pages)
+if (location.protocol === 'file:') window.__t = { get S() { return S; }, get D() { return D; }, walletBalance, monthBag, ymOf, todayStr, addDays, debtAlerts, debtPaid, debtLeft, debtOpen, goalSaved, goalStats, allocIn, walById, closeSheet, monthSaved, goalStreak, runGoalAuto };
 })();
 </script>
 </body>
